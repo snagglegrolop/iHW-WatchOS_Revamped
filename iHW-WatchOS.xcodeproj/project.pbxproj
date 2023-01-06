@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F7923AB329650D2800DC9678 /* iHW-WatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */; };
+		F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB929650D2800DC9678 /* Homepage.swift */; };
+		F7923ABC29650D2900DC9678 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7923ABB29650D2900DC9678 /* Assets.xcassets */; };
+		F7923ABF29650D2900DC9678 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7923ABE29650D2900DC9678 /* Preview Assets.xcassets */; };
+		F7923AC929650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AC829650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift */; };
+		F7923AD329650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */; };
+		F7923AD529650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */; };
+		F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC199296632E60087CE2D /* Sign_In.swift */; };
+		F7BAC19C296686D60087CE2D /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC19B296686D60087CE2D /* About.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7923AB429650D2800DC9678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7923AA629650D2800DC9678 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7923AB129650D2800DC9678;
+			remoteInfo = "iHW-WatchOS Watch App";
+		};
+		F7923AC529650D2900DC9678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7923AA629650D2800DC9678 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7923AB129650D2800DC9678;
+			remoteInfo = "iHW-WatchOS Watch App";
+		};
+		F7923ACF29650D2900DC9678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7923AA629650D2800DC9678 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7923AB129650D2800DC9678;
+			remoteInfo = "iHW-WatchOS Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F7923ADB29650D2900DC9678 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				F7923AB329650D2800DC9678 /* iHW-WatchOS Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOSApp.swift; sourceTree = "<group>"; };
+		F7923AB929650D2800DC9678 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		F7923ABB29650D2900DC9678 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7923ABE29650D2900DC9678 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7923AC429650D2900DC9678 /* iHW-WatchOS Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iHW-WatchOS Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7923AC829650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppTests.swift; sourceTree = "<group>"; };
+		F7923ACE29650D2900DC9678 /* iHW-WatchOS Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iHW-WatchOS Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F7BAC199296632E60087CE2D /* Sign_In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_In.swift; sourceTree = "<group>"; };
+		F7BAC19B296686D60087CE2D /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7923AAF29650D2800DC9678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923AC129650D2900DC9678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923ACB29650D2900DC9678 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F7923AA529650D2800DC9678 = {
+			isa = PBXGroup;
+			children = (
+				F7923AB629650D2800DC9678 /* iHW-WatchOS Watch App */,
+				F7923AC729650D2900DC9678 /* iHW-WatchOS Watch AppTests */,
+				F7923AD129650D2900DC9678 /* iHW-WatchOS Watch AppUITests */,
+				F7923AAD29650D2800DC9678 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7923AAD29650D2800DC9678 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */,
+				F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */,
+				F7923AC429650D2900DC9678 /* iHW-WatchOS Watch AppTests.xctest */,
+				F7923ACE29650D2900DC9678 /* iHW-WatchOS Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7923AB629650D2800DC9678 /* iHW-WatchOS Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */,
+				F7923AB929650D2800DC9678 /* Homepage.swift */,
+				F7BAC199296632E60087CE2D /* Sign_In.swift */,
+				F7BAC19B296686D60087CE2D /* About.swift */,
+				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
+				F7923ABD29650D2900DC9678 /* Preview Content */,
+			);
+			path = "iHW-WatchOS Watch App";
+			sourceTree = "<group>";
+		};
+		F7923ABD29650D2900DC9678 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F7923ABE29650D2900DC9678 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F7923AC729650D2900DC9678 /* iHW-WatchOS Watch AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F7923AC829650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift */,
+			);
+			path = "iHW-WatchOS Watch AppTests";
+			sourceTree = "<group>";
+		};
+		F7923AD129650D2900DC9678 /* iHW-WatchOS Watch AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */,
+				F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = "iHW-WatchOS Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7923AAB29650D2800DC9678 /* iHW-WatchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7923ADC29650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS" */;
+			buildPhases = (
+				F7923AAA29650D2800DC9678 /* Resources */,
+				F7923ADB29650D2900DC9678 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7923AB529650D2800DC9678 /* PBXTargetDependency */,
+			);
+			name = "iHW-WatchOS";
+			productName = "iHW-WatchOS";
+			productReference = F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		F7923AB129650D2800DC9678 /* iHW-WatchOS Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7923AD829650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch App" */;
+			buildPhases = (
+				F7923AAE29650D2800DC9678 /* Sources */,
+				F7923AAF29650D2800DC9678 /* Frameworks */,
+				F7923AB029650D2800DC9678 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "iHW-WatchOS Watch App";
+			productName = "iHW-WatchOS Watch App";
+			productReference = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F7923AC329650D2900DC9678 /* iHW-WatchOS Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7923ADF29650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch AppTests" */;
+			buildPhases = (
+				F7923AC029650D2900DC9678 /* Sources */,
+				F7923AC129650D2900DC9678 /* Frameworks */,
+				F7923AC229650D2900DC9678 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7923AC629650D2900DC9678 /* PBXTargetDependency */,
+			);
+			name = "iHW-WatchOS Watch AppTests";
+			productName = "iHW-WatchOS Watch AppTests";
+			productReference = F7923AC429650D2900DC9678 /* iHW-WatchOS Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F7923ACD29650D2900DC9678 /* iHW-WatchOS Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7923AE229650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch AppUITests" */;
+			buildPhases = (
+				F7923ACA29650D2900DC9678 /* Sources */,
+				F7923ACB29650D2900DC9678 /* Frameworks */,
+				F7923ACC29650D2900DC9678 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7923AD029650D2900DC9678 /* PBXTargetDependency */,
+			);
+			name = "iHW-WatchOS Watch AppUITests";
+			productName = "iHW-WatchOS Watch AppUITests";
+			productReference = F7923ACE29650D2900DC9678 /* iHW-WatchOS Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7923AA629650D2800DC9678 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F7923AAB29650D2800DC9678 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F7923AB129650D2800DC9678 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					F7923AC329650D2900DC9678 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F7923AB129650D2800DC9678;
+					};
+					F7923ACD29650D2900DC9678 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F7923AB129650D2800DC9678;
+					};
+				};
+			};
+			buildConfigurationList = F7923AA929650D2800DC9678 /* Build configuration list for PBXProject "iHW-WatchOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7923AA529650D2800DC9678;
+			productRefGroup = F7923AAD29650D2800DC9678 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7923AAB29650D2800DC9678 /* iHW-WatchOS */,
+				F7923AB129650D2800DC9678 /* iHW-WatchOS Watch App */,
+				F7923AC329650D2900DC9678 /* iHW-WatchOS Watch AppTests */,
+				F7923ACD29650D2900DC9678 /* iHW-WatchOS Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7923AAA29650D2800DC9678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923AB029650D2800DC9678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7923ABF29650D2900DC9678 /* Preview Assets.xcassets in Resources */,
+				F7923ABC29650D2900DC9678 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923AC229650D2900DC9678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923ACC29650D2900DC9678 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7923AAE29650D2800DC9678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */,
+				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
+				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
+				F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923AC029650D2900DC9678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7923AC929650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7923ACA29650D2900DC9678 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7923AD329650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift in Sources */,
+				F7923AD529650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F7923AB529650D2800DC9678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7923AB129650D2800DC9678 /* iHW-WatchOS Watch App */;
+			targetProxy = F7923AB429650D2800DC9678 /* PBXContainerItemProxy */;
+		};
+		F7923AC629650D2900DC9678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7923AB129650D2800DC9678 /* iHW-WatchOS Watch App */;
+			targetProxy = F7923AC529650D2900DC9678 /* PBXContainerItemProxy */;
+		};
+		F7923AD029650D2900DC9678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7923AB129650D2800DC9678 /* iHW-WatchOS Watch App */;
+			targetProxy = F7923ACF29650D2900DC9678 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F7923AD629650D2900DC9678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7923AD729650D2900DC9678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F7923AD929650D2900DC9678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iHW-WatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "iHW-WatchOS";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F7923ADA29650D2900DC9678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"iHW-WatchOS Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "iHW-WatchOS";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		F7923ADD29650D2900DC9678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				INFOPLIST_KEY_CFBundleDisplayName = "iHW-WatchOS";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F7923ADE29650D2900DC9678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				INFOPLIST_KEY_CFBundleDisplayName = "iHW-WatchOS";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7923AE029650D2900DC9678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHW-WatchOS Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iHW-WatchOS Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F7923AE129650D2900DC9678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHW-WatchOS Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iHW-WatchOS Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+		F7923AE329650D2900DC9678 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "iHW-WatchOS Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		F7923AE429650D2900DC9678 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4LWZWFMJ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "quibbleProductions.iHW-WatchOS-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "iHW-WatchOS Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7923AA929650D2800DC9678 /* Build configuration list for PBXProject "iHW-WatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7923AD629650D2900DC9678 /* Debug */,
+				F7923AD729650D2900DC9678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7923AD829650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7923AD929650D2900DC9678 /* Debug */,
+				F7923ADA29650D2900DC9678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7923ADC29650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7923ADD29650D2900DC9678 /* Debug */,
+				F7923ADE29650D2900DC9678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7923ADF29650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7923AE029650D2900DC9678 /* Debug */,
+				F7923AE129650D2900DC9678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7923AE229650D2900DC9678 /* Build configuration list for PBXNativeTarget "iHW-WatchOS Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7923AE329650D2900DC9678 /* Debug */,
+				F7923AE429650D2900DC9678 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7923AA629650D2800DC9678 /* Project object */;
+}
