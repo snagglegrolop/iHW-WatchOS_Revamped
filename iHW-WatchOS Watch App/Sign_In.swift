@@ -16,10 +16,17 @@ struct Sign_In: View {
             }
         }
     }
-
+struct UsernameEnter: View {
+    @State var Username = ""
+    var body: some View {
+        TextField("Username", text: $Username, axis: .horizontal)
+            .padding(.bottom, 90)
+    }
+}
 
 struct Sign_In_Preview: PreviewProvider {
     static var previews: some View {
-        Sign_In()
+        UsernameEnter()
+        
     }
 }

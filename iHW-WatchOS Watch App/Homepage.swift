@@ -48,21 +48,16 @@ struct Homepage: View {
                     .buttonStyle(GrowingButton())
                     .font(.title3)
                     .bold()
-
                     
-                        
-                    
-                    
-                    
-                    }
-
                 }
-            ZStack {
                 
             }
         }
+        
     }
 }
+    
+
     
 
     
