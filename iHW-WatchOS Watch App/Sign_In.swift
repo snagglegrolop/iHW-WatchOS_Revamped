@@ -2,7 +2,7 @@
 //  Login.swift
 //  iHW-WatchOS Watch App
 //
-//  Created by Zachary Abrahamson  on 1/4/23.
+//  Created by --  on 1/4/23.
 //
 
 import SwiftUI
@@ -10,23 +10,24 @@ import SwiftUI
 
 
 struct Sign_In: View {
+    @State private var username = ""
+    @State private var password = ""
+
     var body: some View {
-        VStack {
-        
-            }
+        Form {
+            TextField("Username", text: $username)
+            SecureField("Password", text: $password)
+            
         }
-    }
-struct UsernameEnter: View {
-    @State var Username = ""
-    var body: some View {
-        TextField("Username", text: $Username, axis: .horizontal)
-            .padding(.bottom, 90)
+        .onSubmit {
+            guard username.isEmpty == false && password.isEmpty == false else { return }
+            print("Authenticating…")
+        }
+        .submitLabel(.next)
     }
 }
-
-struct Sign_In_Preview: PreviewProvider {
+struct UsernamePasswordEnter_Preview: PreviewProvider {
     static var previews: some View {
-        UsernameEnter()
-        
+        Sign_In()
     }
 }

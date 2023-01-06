@@ -30,37 +30,24 @@ struct Homepage: View {
             ZStack {
                 VStack(spacing: 30) {
                     NavigationLink(destination: Sign_In()) {
-                        Text("Sign In")
+                        Text("   Sign In   ")
                         
                     }
                     .buttonStyle(GrowingButton())
                     .accentColor(.black)
                     .font(.title3)
                     .bold()
-                    
-                    
                     NavigationLink(destination: About()) {
-                        Text(" About ")
+                        Text("    About    ")
                         
                         
                     }
                     .accentColor(.black)
                     .buttonStyle(GrowingButton())
                     .font(.title3)
-                    .bold()
-                    
-                }
-                
-            }
-        }
-        
-    }
-}
-    
+                    .bold()                    
+                };};};};}
 
-    
-
-    
 struct Homepage_Previews: PreviewProvider {
         static var previews: some View {
             Homepage()
