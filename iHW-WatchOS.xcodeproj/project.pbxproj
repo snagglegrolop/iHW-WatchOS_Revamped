@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F745006D2968A4C400057F0A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745006C2968A4C400057F0A /* Schedule.swift */; };
 		F7923AB329650D2800DC9678 /* iHW-WatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */; };
 		F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB929650D2800DC9678 /* Homepage.swift */; };
@@ -17,7 +18,6 @@
 		F7923AD529650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */; };
 		F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC199296632E60087CE2D /* Sign_In.swift */; };
 		F7BAC19C296686D60087CE2D /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC19B296686D60087CE2D /* About.swift */; };
-		F7BAC19E2967E8710087CE2D /* Password_Enter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC19D2967E8710087CE2D /* Password_Enter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F745006C2968A4C400057F0A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOSApp.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F7BAC199296632E60087CE2D /* Sign_In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_In.swift; sourceTree = "<group>"; };
 		F7BAC19B296686D60087CE2D /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		F7BAC19D2967E8710087CE2D /* Password_Enter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password_Enter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +128,7 @@
 				F7923AB929650D2800DC9678 /* Homepage.swift */,
 				F7BAC19B296686D60087CE2D /* About.swift */,
 				F7BAC199296632E60087CE2D /* Sign_In.swift */,
-				F7BAC19D2967E8710087CE2D /* Password_Enter.swift */,
+				F745006C2968A4C400057F0A /* Schedule.swift */,
 				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
 				F7923ABD29650D2900DC9678 /* Preview Content */,
 			);
@@ -321,8 +321,8 @@
 				F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */,
 				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
 				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
+				F745006D2968A4C400057F0A /* Schedule.swift in Sources */,
 				F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */,
-				F7BAC19E2967E8710087CE2D /* Password_Enter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
