@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F7450075296A83F800057F0A /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7450074296A83F800057F0A /* Schedule.swift */; };
+		F77B5358296B5B32007358D8 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5357296B5B32007358D8 /* Schedule.swift */; };
 		F7923AB329650D2800DC9678 /* iHW-WatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */; };
 		F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB929650D2800DC9678 /* Homepage.swift */; };
@@ -59,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F7450074296A83F800057F0A /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		F77B5357296B5B32007358D8 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOSApp.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				F7923AB929650D2800DC9678 /* Homepage.swift */,
 				F7BAC19B296686D60087CE2D /* About.swift */,
 				F7BAC199296632E60087CE2D /* Sign_In.swift */,
-				F7450074296A83F800057F0A /* Schedule.swift */,
+				F77B5357296B5B32007358D8 /* Schedule.swift */,
 				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
 				F7923ABD29650D2900DC9678 /* Preview Content */,
 			);
@@ -321,7 +321,7 @@
 				F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */,
 				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
 				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
-				F7450075296A83F800057F0A /* Schedule.swift in Sources */,
+				F77B5358296B5B32007358D8 /* Schedule.swift in Sources */,
 				F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
