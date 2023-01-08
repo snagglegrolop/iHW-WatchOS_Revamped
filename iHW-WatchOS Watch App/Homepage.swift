@@ -39,8 +39,6 @@ struct Homepage: View {
                     .bold()
                     NavigationLink(destination: About()) {
                         Text("    About    ")
-                        
-                        
                     }
                     .accentColor(.black)
                     .buttonStyle(GrowingButton())

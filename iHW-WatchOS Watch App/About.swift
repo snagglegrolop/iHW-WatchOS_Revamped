@@ -12,7 +12,7 @@ struct About: View {
     var body: some View {
         VStack{
             Form {
-                Text("App made by Zachary Abrahamson '26.")
+                Text("App idea by Zachary, but code put into motion by Zachary Abrahamson '26, Andrew Jo '26, and Kazach '26")
                     .multilineTextAlignment(.center)
                     .fontWeight(.light)
                 Text("iHW built from the ground up for Apple WatchOS")

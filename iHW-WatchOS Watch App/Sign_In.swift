@@ -63,11 +63,7 @@ struct Sign_In: View {
                     if username.isEmpty == false && password.isEmpty == false {
                         securityManager.isSignInButtonDisabled = false } else {
                             securityManager.isSignInButtonDisabled = true }
-                        }
-
-                    
-                    //guard username.isEmpty == false && password.isEmpty == false else { return }
-                   // securityManager.isSignInButtonDisabled = false
+                }
                 
             }
             .submitLabel(.next)
@@ -77,6 +73,7 @@ struct Sign_In: View {
             .buttonStyle(SignButton(securityManager: securityManager))
             .bold()
             .foregroundColor(.white)
+            .font(.title2)
             
         }
     }
@@ -94,74 +91,3 @@ struct UsernamePasswordEnter_Preview: PreviewProvider {
     }
 }
 
-
-/*import SwiftUI
-
-struct Sign_In: View {
-    @EnvironmentObject var pageManager: PageManager
-    var body: some View {
-        switch pageManager.page {
-        case .top:
-            top()
-
-        case .view2:
-            view2()
-        }
-    }
-}
-
-
-struct top: View {
-    @EnvironmentObject var pageManager: PageManager
-    
-    @State private var username = ""
-    @State private var password = ""
-    @State var tag : Int? = nil
-    
-    var body: some View {
-        Form {
-            TextField("Username", text: $username)
-            SecureField("Password", text: $password)
-        }
-        
-        
-        .onSubmit {
-            guard (username.isEmpty != true && password.isEmpty != true) else { return }
-            pageManager.page = .view2
-        
-    }
-        .submitLabel(.next)
-    };}
-        
-
-struct view2: View {
-    @EnvironmentObject var pageManager: PageManager
-    var body: some View {
-        VStack {
-            Text("View2")
-                .padding()
-
-            Button("To top"){
-                pageManager.page = .top
-            }
-            .padding()
-        }
-    }
-}
-
-enum Page {
-    case top
-    case view2
-}
-
-class PageManager: ObservableObject{
-    @Published var page: Page = .top
-}
-
-struct Sign_In_Previews: PreviewProvider {
-    static var previews: some View {
-        Sign_In()
-            .environmentObject(PageManager())
-    }
-}
-*/
