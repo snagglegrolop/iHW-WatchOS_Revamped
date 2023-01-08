@@ -8,88 +8,88 @@
 import SwiftUI
 var logged = false
 
-
 extension Color {
     static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
     static let darkPink = Color(red: 252 / 255, green: 8 / 255, blue: 288 / 255)
 }
 
+class SecurityManager : ObservableObject {
+    @Published var isSignInButtonDisabled = true
+}
 
 
 struct ContentView: View {
     @State private var username = ""
     @State private var password = ""
-    @State public var isSignInButtonDisabled: Bool
     var body: some View {
-        Sign_In(isSignInButtonDisabled: $isSignInButtonDisabled) }
+        Sign_In() }
     
     }
 
 
-
-
-struct Sign_In: View {
-    @State private var username = ""
-    @State private var password = ""
-    @Binding var isSignInButtonDisabled: Bool
-    let Banana_Uppity = Image("Banana_Up")
-    let Banana_Dancity = Image("Banana_Dance")
-    var body: some View {
-        VStack {
-        NavigationStack {
-        Form {
-            TextField("Username", text: $username)
-            SecureField("Password", text: $password)
-        }
-        
-        
-        .onSubmit {
-            guard username.isEmpty == false && password.isEmpty == false else { return }
-            
-            }
-        }
-        .submitLabel(.next)
-            
-            Button {
-                } label: {
-                Text("Sign In")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.white)
-            }
-            .frame(height: 50)
-            .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
-            .background(
-                isSignInButtonDisabled ?
-                LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
-                    LinearGradient(colors: [Color.darkPink, .orange], startPoint: .bottomLeading, endPoint: .topTrailing)
-            )
-            .cornerRadius(15)
-            .disabled(isSignInButtonDisabled) // how to disable while some condition is applied
-            .padding()
-        }
-    }
-}
-
-
 struct SignButton: ButtonStyle {
-    @Binding var isSignInButtonDisabled: Bool
+    @ObservedObject var securityManager: SecurityManager
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
         
             .frame(height: 50)
             .frame(maxWidth: .infinity) // how to make a button fill all the space available horizontaly
             .background(
-                isSignInButtonDisabled ?
+                securityManager.isSignInButtonDisabled ?
                 LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
-                    LinearGradient(colors: [Color.darkPink, .orange], startPoint: .bottomLeading, endPoint: .topTrailing))
+                    LinearGradient(colors: [Color.darkPink, .orange], startPoint: .bottomLeading, endPoint: .topTrailing)
+            )
+            .cornerRadius(15)
+            .disabled(securityManager.isSignInButtonDisabled) // how to disable while some condition is applied
+            .padding()
     };}
+
+struct Sign_In: View {
+    @State private var username = ""
+    @State private var password = ""
+    @StateObject var securityManager = SecurityManager()
+    let Banana_Uppity = Image("Banana_Up")
+    let Banana_Dancity = Image("Banana_Dance")
+    var body: some View {
+        VStack {
+            NavigationStack {
+                Form {
+                    TextField("Username", text: $username)
+                    SecureField("Password", text: $password)
+                }
+                
+                
+                .onSubmit {
+                    if username.isEmpty == false && password.isEmpty == false {
+                        securityManager.isSignInButtonDisabled = false } else {
+                            securityManager.isSignInButtonDisabled = true }
+                        }
+
+                    
+                    //guard username.isEmpty == false && password.isEmpty == false else { return }
+                   // securityManager.isSignInButtonDisabled = false
+                
+            }
+            .submitLabel(.next)
+            NavigationLink(destination: Schedule()) {
+                Text("Sign In")
+            }
+            .buttonStyle(SignButton(securityManager: securityManager))
+            .bold()
+            .foregroundColor(.white)
+            
+        }
+    }
+}
+
+
+
 
 
 
 struct UsernamePasswordEnter_Preview: PreviewProvider {
     static var previews: some View {
-        ContentView(isSignInButtonDisabled: $isSignInButtonDisabled)
+        ContentView()
         
     }
 }
