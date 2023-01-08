@@ -74,7 +74,7 @@ struct Sign_In: View {
                .buttonStyle(SignButton(securityManager: securityManager))
            }
             .navigationDestination(isPresented: $readyToNavigate) {
-               Schedule()
+                USMSSelect()
            }
         }
     }

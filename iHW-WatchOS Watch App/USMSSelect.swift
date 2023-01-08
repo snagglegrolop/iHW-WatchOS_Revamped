@@ -6,15 +6,20 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct Schedule: View {
+struct USMSSelect: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Image("Banana_Up")
+                .resizable()
+                .frame(height: 2)
+        }
     }
 }
 
 struct Schedule_Previews: PreviewProvider {
     static var previews: some View {
-        Schedule()
+        USMSSelect()
     }
 }
