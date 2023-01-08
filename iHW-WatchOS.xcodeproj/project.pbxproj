@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5357296B5B32007358D8 /* USMSSelect.swift */; };
+		F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */; };
+		F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */; };
 		F7923AB329650D2800DC9678 /* iHW-WatchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */; };
 		F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AB929650D2800DC9678 /* Homepage.swift */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		F77B5357296B5B32007358D8 /* USMSSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USMSSelect.swift; sourceTree = "<group>"; };
+		F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperSchoolSchedule.swift; sourceTree = "<group>"; };
+		F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleSchoolSchedule.swift; sourceTree = "<group>"; };
 		F7923AAC29650D2800DC9678 /* iHW-WatchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iHW-WatchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOSApp.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				F7BAC19B296686D60087CE2D /* About.swift */,
 				F7BAC199296632E60087CE2D /* Sign_In.swift */,
 				F77B5357296B5B32007358D8 /* USMSSelect.swift */,
+				F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */,
+				F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */,
 				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
 				F7923ABD29650D2900DC9678 /* Preview Content */,
 			);
@@ -321,6 +327,8 @@
 				F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */,
 				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
 				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
+				F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */,
+				F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */,
 				F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */,
 				F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */,
 			);

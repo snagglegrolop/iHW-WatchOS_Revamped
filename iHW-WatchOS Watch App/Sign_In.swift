@@ -27,10 +27,13 @@ struct SignButton: ButtonStyle {
                 securityManager.isSignInButtonDisabled ?
                 LinearGradient(colors: [.gray], startPoint: .topLeading, endPoint: .bottomTrailing) :
                     LinearGradient(colors: [Color.darkPink, .red, Color.darkPink], startPoint: .bottomLeading, endPoint: .topTrailing)
+                
             )
             .cornerRadius(15)
             .disabled(securityManager.isSignInButtonDisabled) // how to disable while some condition is applied
             .padding()
+            .scaleEffect(!securityManager.isSignInButtonDisabled ? 1 : 0.7)
+            .animation(.easeInOut(duration: 0.8), value: !securityManager.isSignInButtonDisabled)
     };}
 
 struct ContentView: View {
