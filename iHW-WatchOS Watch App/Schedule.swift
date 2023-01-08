@@ -2,7 +2,7 @@
 //  Schedule.swift
 //  iHW-WatchOS Watch App
 //
-//  Created by Zachary Abrahamson  on 1/6/23.
+//  Created by Zachary Abrahamson  on 1/7/23.
 //
 
 import SwiftUI
@@ -18,4 +18,3 @@ struct Schedule_Previews: PreviewProvider {
         Schedule()
     }
 }
-

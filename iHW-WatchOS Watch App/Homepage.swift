@@ -45,7 +45,7 @@ struct Homepage: View {
                     .accentColor(.black)
                     .buttonStyle(GrowingButton())
                     .font(.title3)
-                    .bold()                    
+                    .bold()
                 };};};};}
 
 struct Homepage_Previews: PreviewProvider {
