@@ -31,7 +31,6 @@ struct Homepage: View {
                 VStack(spacing: 30) {
                     NavigationLink(destination: Sign_In()) {
                         Text("   Sign In   ")
-                        
                     }
                     .buttonStyle(GrowingButton())
                     .accentColor(.black)

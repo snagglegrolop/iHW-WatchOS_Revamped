@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71BC90F296D21A0009E01A2 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = F71BC90E296D21A0009E01A2 /* SWXMLHash */; };
 		F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5357296B5B32007358D8 /* USMSSelect.swift */; };
 		F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */; };
 		F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */; };
@@ -18,6 +19,9 @@
 		F7923AC929650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AC829650D2900DC9678 /* iHW_WatchOS_Watch_AppTests.swift */; };
 		F7923AD329650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */; };
 		F7923AD529650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */; };
+		F7A07B51297099D0005B0422 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F7A07B50297099D0005B0422 /* Alamofire */; };
+		F7A07B5429710106005B0422 /* AEXML in Frameworks */ = {isa = PBXBuildFile; productRef = F7A07B5329710106005B0422 /* AEXML */; };
+		F7A07B5729710D32005B0422 /* SwiftyXMLParser in Frameworks */ = {isa = PBXBuildFile; productRef = F7A07B5629710D32005B0422 /* SwiftyXMLParser */; };
 		F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC199296632E60087CE2D /* Sign_In.swift */; };
 		F7BAC19C296686D60087CE2D /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC19B296686D60087CE2D /* About.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +88,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A07B5429710106005B0422 /* AEXML in Frameworks */,
+				F71BC90F296D21A0009E01A2 /* SWXMLHash in Frameworks */,
+				F7A07B51297099D0005B0422 /* Alamofire in Frameworks */,
+				F7A07B5729710D32005B0422 /* SwiftyXMLParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +207,12 @@
 			dependencies = (
 			);
 			name = "iHW-WatchOS Watch App";
+			packageProductDependencies = (
+				F71BC90E296D21A0009E01A2 /* SWXMLHash */,
+				F7A07B50297099D0005B0422 /* Alamofire */,
+				F7A07B5329710106005B0422 /* AEXML */,
+				F7A07B5629710D32005B0422 /* SwiftyXMLParser */,
+			);
 			productName = "iHW-WatchOS Watch App";
 			productReference = F7923AB229650D2800DC9678 /* iHW-WatchOS Watch App.app */;
 			productType = "com.apple.product-type.application";
@@ -274,6 +288,12 @@
 				Base,
 			);
 			mainGroup = F7923AA529650D2800DC9678;
+			packageReferences = (
+				F71BC90D296D21A0009E01A2 /* XCRemoteSwiftPackageReference "SWXMLHash" */,
+				F7A07B4F297099D0005B0422 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F7A07B5229710106005B0422 /* XCRemoteSwiftPackageReference "AEXML" */,
+				F7A07B5529710D32005B0422 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */,
+			);
 			productRefGroup = F7923AAD29650D2800DC9678 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -708,6 +728,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F71BC90D296D21A0009E01A2 /* XCRemoteSwiftPackageReference "SWXMLHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/drmohundro/SWXMLHash";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		F7A07B4F297099D0005B0422 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F7A07B5229710106005B0422 /* XCRemoteSwiftPackageReference "AEXML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tadija/AEXML";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		F7A07B5529710D32005B0422 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yahoojapan/SwiftyXMLParser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F71BC90E296D21A0009E01A2 /* SWXMLHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F71BC90D296D21A0009E01A2 /* XCRemoteSwiftPackageReference "SWXMLHash" */;
+			productName = SWXMLHash;
+		};
+		F7A07B50297099D0005B0422 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7A07B4F297099D0005B0422 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		F7A07B5329710106005B0422 /* AEXML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7A07B5229710106005B0422 /* XCRemoteSwiftPackageReference "AEXML" */;
+			productName = AEXML;
+		};
+		F7A07B5629710D32005B0422 /* SwiftyXMLParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F7A07B5529710D32005B0422 /* XCRemoteSwiftPackageReference "SwiftyXMLParser" */;
+			productName = SwiftyXMLParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F7923AA629650D2800DC9678 /* Project object */;
 }

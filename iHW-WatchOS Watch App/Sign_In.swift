@@ -37,25 +37,25 @@ struct SignButton: ButtonStyle {
     };}
 
 struct ContentView: View {
-    @State private var username = ""
-    @State private var password = ""
     var body: some View {
         Sign_In() }
     
     }
 
 struct Sign_In: View {
+    
     @State private var readyToNavigate : Bool = false
-    @State private var username = ""
-    @State private var password = ""
+    @AppStorage("username") private var username = ""
+    @AppStorage("password") private var password = ""
     @StateObject var securityManager = SecurityManager()
      var body: some View {
          NavigationStack {
-            VStack {
+             VStack {
                 Form {
                     TextField("Username", text: $username)
                     SecureField("Password", text: $password)
                 }
+                .scrollDisabled(true)
                 .submitLabel(.next)
                 .onSubmit {
                     if username.isEmpty == false && password.isEmpty == false {

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct About: View {
     var body: some View {
