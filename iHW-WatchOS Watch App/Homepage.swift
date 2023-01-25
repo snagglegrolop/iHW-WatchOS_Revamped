@@ -36,6 +36,7 @@ struct Homepage: View {
                     .accentColor(.black)
                     .font(.title3)
                     .bold()
+                    
                     NavigationLink(destination: About()) {
                         Text("    About    ")
                     }
