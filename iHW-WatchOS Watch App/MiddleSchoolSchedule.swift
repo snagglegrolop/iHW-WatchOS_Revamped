@@ -16,6 +16,7 @@ class XMLData : ObservableObject {
 
 struct MiddleSchoolSchedule: View {
     @StateObject var xmldata = XMLData()
+    @StateObject var xmlinfo = XMLInfo()
     var body: some View {
         let Brumbly = xmldata.Brumble.randomElement()!
 

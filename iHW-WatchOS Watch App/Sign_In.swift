@@ -41,34 +41,11 @@ struct SignButton: ButtonStyle {
 
     };}
 
-struct CD: XMLObjectDeserialization {
-    let TITLE: String
-    let ARTIST: String
-    let COUNTRY: String
-    let COMPANY: String
-    let PRICE: Double
-    let YEAR: Int
-
-    static func deserialize(_ node: XMLIndexer) throws -> CD {
-        return try CD (
-            TITLE: node["TITLE"].value(),
-            ARTIST: node["ARTIST"].value(),
-            COUNTRY: node["COUNTRY"].value(),
-            COMPANY: node["COMPANY"].value(),
-            PRICE: node["PRICE"].value(),
-            YEAR : node.value(ofAttribute: "YEAR")
-        )
-    }
-}
-
-
-
 struct Sign_In: View {
     @State public var readyToNavigate : Bool = false
     @AppStorage("username") private var username = ""
     @AppStorage("password") private var password = ""
     @StateObject var securityManager = SecurityManager()
-    let count = 0...26
     var body: some View {
          NavigationStack {
              VStack {
@@ -90,21 +67,6 @@ struct Sign_In: View {
                        readyToNavigate = true } else {
                            readyToNavigate = false
                        }
-                    AF.request("https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t=").responseString { response in
-                        if let string = response.value {
-                            print("\(string)")
-                            print("  ")
-                            for number in count {
-                                print(" ")
-                                print("hey \(number)")
-                                let xml = XMLHash.parse(string)
-                                print(xml["Calendar"]["CalendarDay"][number]["DayDateShort"].element?.text as Any)
-                            }
-                            let calendar = NSCalendar.current
-                            print(calendar)
-                        }
-                    }
-                        
                } label: {
                    Text("Sign In")
                        .bold()
