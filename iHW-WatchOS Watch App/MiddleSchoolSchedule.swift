@@ -7,31 +7,25 @@
 
 import SwiftUI
 import SWXMLHash
+import Alamofire
 
-class XMLData : ObservableObject {
-    @Published var CycleDay = Int.random(in: 1...6)
-    @Published var SchoolDayDescription = "MS Day "
-    let Brumble = ["Break", "Assembly", "Special Assembly", "Break"]
-}
+
 
 struct MiddleSchoolSchedule: View {
-    @StateObject var xmldata = XMLData()
-    @StateObject var xmlinfo = XMLInfo()
+    @ObservedObject var xmlinfo: XMLInfo
     var body: some View {
-        let Brumbly = xmldata.Brumble.randomElement()!
-
-        
         VStack {
-            Text("Today is \(xmldata.SchoolDayDescription)\(xmldata.CycleDay)")
+            Text("Today is \(xmlinfo.DayDateLong)")
                 .padding()
                 .font(.title3)
                 .bold()
                 .foregroundColor(.red)
-
+                
+             
             Form {
                 Text("Period 1")
                 Text("Period 2")
-                Text(Brumbly)
+                Text("Break")
                 Text("Period 3")
                 Text("Period 4")
                 Text("Period 5")
@@ -42,12 +36,17 @@ struct MiddleSchoolSchedule: View {
                 
             }
         }
+        
     }
 }
 
+
+
+
+
 struct MiddleSchoolSchedule_Previews: PreviewProvider {
     static var previews: some View {
-        MiddleSchoolSchedule()
+        MiddleSchoolSchedule(xmlinfo: XMLInfo())
     }
 }
 

@@ -24,19 +24,25 @@ struct GrowingButton2: ButtonStyle {
     }
 }
 
-class XMLInfo : ObservableObject {
-    @Published var DayDateLong = "  "
-    @Published var CycleDay = "  "
-    @Published var DivisionDescription = "  "
-    @Published var SchoolDayDescription = "  "
+class studentSchedule: ObservableObject {
+    
+}
+
+class XMLInfo: ObservableObject {
+    @Published var DayDateLong: String = "  "
+    @Published var CycleDay: String = "  "
+    @Published var DivisionDescription: String = "  "
+    @Published var SchoolDayDescription: String = "  "
+    
+    
+    
 }
 
 struct USMSSelect: View {
     @State public var MiddleNav : Bool = false
     @State public var UpperNav : Bool = false
     @State var ButtonLook = GrowingButton2()
-    @StateObject var xmlinfo = XMLInfo()
-    let count = 0...26
+    @StateObject public var xmlinfo = XMLInfo()
     var body: some View {
         NavigationStack {
             VStack(spacing: 10){
@@ -57,30 +63,39 @@ struct USMSSelect: View {
                 .buttonStyle(ButtonLook)
                 
                 Button {
-                    MiddleNav = true
+                        MiddleNav = true
                     
+                    AF.request("https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t=").responseString { response in
+                        if let string = response.value {
+                                print("hey")
+                                print(" ")
+                                let xml = XMLHash.parse(string)
+                            
+                                xmlinfo.DayDateLong = (xml["Calendar"]["CalendarDay"][0]["DayDateLong"].element?.text)!
+                            
+                                xmlinfo.CycleDay = (xml["Calendar"]["CalendarDay"][0]["CycleDay"].element?.text)!
+                            
+                                xmlinfo.DivisionDescription = (xml["Calendar"]["CalendarDay"][0]["DivisionDescription"].element?.text)!
+                            
+                            print("It is \(xmlinfo.DayDateLong), but it is a \(xmlinfo.DivisionDescription) day \(xmlinfo.CycleDay)")
+                            print(type(of: xmlinfo.DayDateLong))
+                            
+                        }
+                    }
                 } label: {
                     Text("Middle School Schedule")
                         .multilineTextAlignment(.center)
                         .bold()
                         .foregroundColor(.white)
-                        .font(.system(size: 26))
+                        .font(.system(size: 25.5))
                     
                     
                 }
                 .buttonStyle(ButtonLook)
             }
         }
-        /*NavigationLink(destination: MiddleSchoolSchedule()) {
-         Text("Middle School Schedule")
-         }
-         .buttonStyle(GrowingButton2())
-         .font(.system(size: 26))
-         .bold()
-         
-         */
         .navigationDestination(isPresented: $MiddleNav) {
-            MiddleSchoolSchedule()
+            MiddleSchoolSchedule(xmlinfo: XMLInfo())
         }
         .navigationDestination(isPresented: $UpperNav) {
             UpperSchoolSchedule()
@@ -89,6 +104,8 @@ struct USMSSelect: View {
     }
 }
     
+
+
 
 
 struct Schedule_Previews: PreviewProvider {
@@ -113,3 +130,6 @@ struct Schedule_Previews: PreviewProvider {
      }
  }
  */
+
+
+        

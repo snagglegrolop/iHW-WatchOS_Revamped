@@ -66,6 +66,7 @@ struct Sign_In: View {
                    if username.isEmpty == false && password.isEmpty == false {
                        readyToNavigate = true } else {
                            readyToNavigate = false
+                               
                        }
                } label: {
                    Text("Sign In")
