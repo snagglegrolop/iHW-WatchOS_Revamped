@@ -47,12 +47,14 @@ struct Sign_In: View {
     @AppStorage("password") private var password = ""
     @StateObject var securityManager = SecurityManager()
     var body: some View {
-         NavigationStack {
+         
+        NavigationStack {
              VStack {
                 Form {
                     TextField("Username", text: $username)
                     SecureField("Password", text: $password)
                 }
+                 
                 .scrollDisabled(true)
                 .submitLabel(.next)
                 .onSubmit {
@@ -86,11 +88,15 @@ struct Sign_In: View {
                }
                .buttonStyle(SignButton(securityManager: securityManager))
            }
-            .navigationDestination(isPresented: $readyToNavigate) {
-                USMSSelect()
-           }
+             
+             .navigationDestination(isPresented: $readyToNavigate) {
+                 USMSSelect()
+
+             }
+
         }
     }
+    
 }
 
 
