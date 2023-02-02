@@ -8,7 +8,6 @@
 import SwiftUI
 import SWXMLHash
 import Alamofire
-import Foundation
 
 extension Color {
     static let teal = Color(red: 49 / 255, green: 163 / 255, blue: 159 / 255)
@@ -96,7 +95,6 @@ struct Sign_In: View {
 
         }
     }
-    
 }
 
 

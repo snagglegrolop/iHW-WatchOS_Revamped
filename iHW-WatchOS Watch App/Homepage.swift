@@ -44,7 +44,10 @@ struct Homepage: View {
                     .buttonStyle(GrowingButton())
                     .font(.title3)
                     .bold()
-                };};};};}
+                }
+            };};};}
+
+
 
 struct Homepage_Previews: PreviewProvider {
         static var previews: some View {
