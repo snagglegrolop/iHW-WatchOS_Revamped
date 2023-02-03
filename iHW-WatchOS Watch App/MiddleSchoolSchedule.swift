@@ -36,36 +36,14 @@ struct MiddleSchoolSchedule: View {
     @State var Per8_MS = false
     @State var Per9_MS = false
     
-    @Binding var DayDateLong: String
-    @Binding var CycleDay: String
-    @Binding var DivisionDescription: String
-    @Binding var SchoolDayDescription: String
-    @Binding var Per1_StartTime: String
-    @Binding var Per1_EndTime: String
-    @Binding var Per2_StartTime: String
-    @Binding var Per2_EndTime: String
-    @Binding var Break_StartTime: String
-    @Binding var Break_EndTime: String
-    @Binding var Per3_StartTime: String
-    @Binding var Per3_EndTime: String
-    @Binding var Per4_StartTime: String
-    @Binding var Per4_EndTime: String
-    @Binding var Per5_StartTime: String
-    @Binding var Per5_EndTime: String
-    @Binding var Per6_StartTime: String
-    @Binding var Per6_EndTime: String
-    @Binding var Per7_StartTime: String
-    @Binding var Per7_EndTime: String
-    @Binding var Per8_StartTime: String
-    @Binding var Per8_EndTime: String
-    @Binding var Per9_StartTime: String
-    @Binding var Per9_EndTime: String
+  
     @State var MScounter: Int = 0
-    @State var Backwards = "Backwards"
+    @State var PreviousDay = "Previous Day"
     
     @State var GetStuff = USMSSelect()
     
-    @StateObject var xmlinfo = XMLInfo()
+    @ObservedObject var xmlinfo: XMLInfo
+    @StateObject var xmlInfo = XMLInfo()
     @State var selectpage = USMSSelect()
     
     @State public var selectedTab : String = "TodaySchoolDay"
@@ -77,28 +55,30 @@ struct MiddleSchoolSchedule: View {
                     if MScounter >= 1 {
                         MScounter -= 1
                     } else {
-                    Backwards = "Error"
+                    PreviousDay = "Error"
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                            Backwards = "Backwards"
+                            PreviousDay = "Previous Day"
                         }
 
                     }
-                    GetStuff.MSgetInfo(futuredays: MScounter)
+                    xmlinfo.MSgetInfo(futuredays: MScounter)
                     
                 } label: {
-                    Text(Backwards)
-                        .font(.system(size: 13))
-                        .bold()
+                    Text(PreviousDay)
+                        .font(.system(size: 12, weight: .light))
+                        .tint(.red)
+                        
+                        
 
                 }
                 Button {
                     MScounter += 1
-                    GetStuff.MSgetInfo(futuredays: MScounter)
+                    xmlinfo.MSgetInfo(futuredays: MScounter)
 
                 } label: {
-                    Text("1 Day More")
+                    Text("Next Day")
                         .font(.system(size: 13))
-                        .bold()
+                        
 
                 }
                 
@@ -120,10 +100,10 @@ struct MiddleSchoolSchedule: View {
                         Group {
                             Button {
                             } label: {
-                                Text("\(DayDateLong)")
+                                Text("\(xmlinfo.DayDateLong)")
                                     .font(.footnote)
                                     .multilineTextAlignment(.center)
-                                Text("Today is an \(SchoolDayDescription)")
+                                Text("Today is an \(xmlinfo.SchoolDayDescription)")
                                     .padding()
                                     .font(.system(size: 15))
                                     .bold()
@@ -139,7 +119,7 @@ struct MiddleSchoolSchedule: View {
 
                             } label: {
                                 Text("Period 1")
-                                Text("\(Per1_StartTime) to \(Per1_EndTime)")
+                                Text("\(xmlinfo.Per1_StartTime) to \(xmlinfo.Per1_EndTime)")
                                     .font(.footnote)
                                 
                             }
@@ -147,63 +127,63 @@ struct MiddleSchoolSchedule: View {
                                 Per2_MS = true
                             } label: {
                                 Text("Period 2")
-                                Text("\(Per2_StartTime) to \(Per2_EndTime)")
+                                Text("\(xmlinfo.Per2_StartTime) to \(xmlinfo.Per2_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Break_MS = true
                             } label: {
                                 Text("Break")
-                                Text("\(Break_StartTime) to \(Break_EndTime)")
+                                Text("\(xmlinfo.Break_StartTime) to \(xmlinfo.Break_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per3_MS = true
                             } label: {
                                 Text("Period 3")
-                                Text("\(Per3_StartTime) to \(Per3_EndTime)")
+                                Text("\(xmlinfo.Per3_StartTime) to \(xmlinfo.Per3_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per4_MS = true
                             } label: {
                                 Text("Period 4")
-                                Text("\(Per4_StartTime) to \(Per4_EndTime)")
+                                Text("\(xmlinfo.Per4_StartTime) to \(xmlinfo.Per4_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per5_MS = true
                             } label: {
                                 Text("Period 5")
-                                Text("\(Per5_StartTime) to \(Per5_EndTime)")
+                                Text("\(xmlinfo.Per5_StartTime) to \(xmlinfo.Per5_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per6_MS = true
                             } label: {
                                 Text("Period 6")
-                                Text("\(Per6_StartTime) to \(Per6_EndTime)")
+                                Text("\(xmlinfo.Per6_StartTime) to \(xmlinfo.Per6_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per7_MS = true
                             } label: {
                                 Text("Period 7")
-                                Text("\(Per7_StartTime) to \(Per7_EndTime)")
+                                Text("\(xmlinfo.Per7_StartTime) to \(xmlinfo.Per7_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per8_MS = true
                             } label: {
                                 Text("Period 8")
-                                Text("\(Per8_StartTime) to \(Per8_EndTime)")
+                                Text("\(xmlinfo.Per8_StartTime) to \(xmlinfo.Per8_EndTime)")
                                     .font(.footnote)
                             }
                             Button {
                                 Per9_MS = true
                             } label: {
                                 Text("Period 9")
-                                Text("\(Per9_StartTime) to \(Per9_EndTime)")
+                                Text("\(xmlinfo.Per9_StartTime) to \(xmlinfo.Per9_EndTime)")
                                     .font(.footnote)
                             }
                         }
@@ -218,9 +198,8 @@ struct MiddleSchoolSchedule: View {
             }
             .tag("TomorrowSchoolDay")
 
+
         }
-        
-        
         
         .navigationDestination(isPresented: $Per1_MS) {
             Per1_Notes()
@@ -705,8 +684,7 @@ struct HolidayView: View {
 struct ContentView: View {
     @ObservedObject var xmlinfo = XMLInfo()
     var body: some View {
-        MiddleSchoolSchedule(
-            DayDateLong: $xmlinfo.DayDateLong, CycleDay: $xmlinfo.CycleDay, DivisionDescription: $xmlinfo.DivisionDescription, SchoolDayDescription: $xmlinfo.SchoolDayDescription, Per1_StartTime: $xmlinfo.Per1_StartTime, Per1_EndTime: $xmlinfo.Per1_EndTime, Per2_StartTime: $xmlinfo.Per2_StartTime, Per2_EndTime: $xmlinfo.Per2_EndTime, Break_StartTime: $xmlinfo.Break_StartTime, Break_EndTime: $xmlinfo.Break_EndTime, Per3_StartTime: $xmlinfo.Per3_StartTime, Per3_EndTime: $xmlinfo.Per3_EndTime, Per4_StartTime: $xmlinfo.Per4_StartTime, Per4_EndTime: $xmlinfo.Per4_EndTime, Per5_StartTime: $xmlinfo.Per5_StartTime, Per5_EndTime: $xmlinfo.Per5_EndTime, Per6_StartTime: $xmlinfo.Per6_StartTime, Per6_EndTime: $xmlinfo.Per6_EndTime, Per7_StartTime: $xmlinfo.Per7_StartTime, Per7_EndTime: $xmlinfo.Per7_EndTime, Per8_StartTime: $xmlinfo.Per8_StartTime, Per8_EndTime: $xmlinfo.Per8_EndTime, Per9_StartTime: $xmlinfo.Per9_StartTime, Per9_EndTime: $xmlinfo.Per9_EndTime)
+        MiddleSchoolSchedule(xmlinfo: xmlinfo)
         
     }
 }

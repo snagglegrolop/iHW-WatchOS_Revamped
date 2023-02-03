@@ -54,6 +54,56 @@ class XMLInfo: ObservableObject {
     @Published var Per9_StartTime = ""
     @Published var Per9_EndTime = ""
     
+    func MSgetInfo(futuredays: Int) {
+        let url = "https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t="
+        let urlRequest = URLRequest(url: URL(string: url)!)
+        URLCache.shared.removeCachedResponse(for: urlRequest)
+        
+        AF.request("https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t=").responseString { response in
+            
+            
+            if let string = response.value {
+                print("hey")
+                print(" ")
+                let xml = XMLHash.parse(string)
+                let FutureDays: Int = futuredays
+                
+                self.DayDateLong = (xml["Calendar"]["CalendarDay"][FutureDays]["DayDateLong"].element?.text)!
+                self.CycleDay = (xml["Calendar"]["CalendarDay"][FutureDays]["CycleDay"].element?.text)!
+                self.DivisionDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["DivisionDescription"].element?.text)!
+                self.SchoolDayDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["SchoolDayDescription"].element?.text)!
+                self.Per1_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTimeText"].element?.text)!
+                self.Per1_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTimeText"].element?.text)!
+                self.Per2_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTimeText"].element?.text)!
+                self.Per2_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTimeText"].element?.text)!
+                self.Break_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTimeText"].element?.text)!
+                self.Break_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTimeText"].element?.text)!
+                self.Per3_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTimeText"].element?.text)!
+                self.Per3_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTimeText"].element?.text)!
+                self.Per4_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTimeText"].element?.text)!
+                self.Per4_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTimeText"].element?.text)!
+                self.Per5_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTimeText"].element?.text)!
+                self.Per5_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTimeText"].element?.text)!
+                self.Per6_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTimeText"].element?.text)!
+                self.Per6_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTimeText"].element?.text)!
+                self.Per7_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTimeText"].element?.text)!
+                self.Per7_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTimeText"].element?.text)!
+                self.Per8_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTimeText"].element?.text)!
+                self.Per8_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTimeText"].element?.text)!
+                self.Per9_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTimeText"].element?.text)!
+                self.Per9_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTimeText"].element?.text)!
+                
+                
+                
+                print("It is \(self.DayDateLong), but it is a \(self.DivisionDescription) day \(self.CycleDay)")
+                print(type(of: self.DayDateLong))
+                print("Period 1 starts at \(self.Per1_StartTime)")
+                
+                
+            }
+            
+        }
+    }
 }
 
 
@@ -61,81 +111,7 @@ struct USMSSelect: View {
     @State public var MiddleNav : Bool = false
     @State public var UpperNav : Bool = false
     @State var ButtonLook = GrowingButton2()
-    @ObservedObject var xmlinfo = XMLInfo()
-    @StateObject var securityManager = SecurityManager()
-    
-    func MSgetInfo(futuredays: Int) {
-        let url = "https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t="
-        let urlRequest = URLRequest(url: URL(string: url)!)
-        URLCache.shared.removeCachedResponse(for: urlRequest)
-
-        AF.request("https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t=").responseString { response in
-            
-            
-            if let string = response.value {
-            print("hey")
-            print(" ")
-            let xml = XMLHash.parse(string)
-            let FutureDays: Int = futuredays
-            
-            xmlinfo.DayDateLong = (xml["Calendar"]["CalendarDay"][FutureDays]["DayDateLong"].element?.text)!
-            
-            xmlinfo.CycleDay = (xml["Calendar"]["CalendarDay"][FutureDays]["CycleDay"].element?.text)!
-            
-            xmlinfo.DivisionDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["DivisionDescription"].element?.text)!
-            
-            xmlinfo.SchoolDayDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["SchoolDayDescription"].element?.text)!
-            
-            xmlinfo.Per1_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per1_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per2_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per2_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Break_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Break_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per3_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per3_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per4_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per4_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per5_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per5_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per6_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per6_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per7_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per7_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per8_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per8_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTimeText"].element?.text)!
-            
-            xmlinfo.Per9_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTimeText"].element?.text)!
-            
-            xmlinfo.Per9_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTimeText"].element?.text)!
-            
-            
-            
-            print("It is \(xmlinfo.DayDateLong), but it is a \(xmlinfo.DivisionDescription) day \(xmlinfo.CycleDay)")
-            print(type(of: xmlinfo.DayDateLong))
-            print("Period 1 starts at \(xmlinfo.Per1_StartTime)")
-            
-            
-        }
-        }
-    }
+    @StateObject var xmlinfo = XMLInfo()
     
     var body: some View {
         NavigationStack {
@@ -157,7 +133,7 @@ struct USMSSelect: View {
                 .buttonStyle(ButtonLook)
                 
                 Button {
-                    MSgetInfo(futuredays: 0)
+                    xmlinfo.MSgetInfo(futuredays: 0)
                     MiddleNav = true
                     
                 } label: {
@@ -173,9 +149,9 @@ struct USMSSelect: View {
                 .buttonStyle(ButtonLook)
             }
         }
+        .environmentObject(xmlinfo)
         .navigationDestination(isPresented: $MiddleNav) {
-            MiddleSchoolSchedule(
-                DayDateLong: $xmlinfo.DayDateLong, CycleDay: $xmlinfo.CycleDay, DivisionDescription: $xmlinfo.DivisionDescription, SchoolDayDescription: $xmlinfo.SchoolDayDescription, Per1_StartTime: $xmlinfo.Per1_StartTime, Per1_EndTime: $xmlinfo.Per1_EndTime, Per2_StartTime: $xmlinfo.Per2_StartTime, Per2_EndTime: $xmlinfo.Per2_EndTime, Break_StartTime: $xmlinfo.Break_StartTime, Break_EndTime: $xmlinfo.Break_EndTime, Per3_StartTime: $xmlinfo.Per3_StartTime, Per3_EndTime: $xmlinfo.Per3_EndTime, Per4_StartTime: $xmlinfo.Per4_StartTime, Per4_EndTime: $xmlinfo.Per4_EndTime, Per5_StartTime: $xmlinfo.Per5_StartTime, Per5_EndTime: $xmlinfo.Per5_EndTime, Per6_StartTime: $xmlinfo.Per6_StartTime, Per6_EndTime: $xmlinfo.Per6_EndTime, Per7_StartTime: $xmlinfo.Per7_StartTime, Per7_EndTime: $xmlinfo.Per7_EndTime, Per8_StartTime: $xmlinfo.Per8_StartTime, Per8_EndTime: $xmlinfo.Per8_EndTime, Per9_StartTime: $xmlinfo.Per9_StartTime, Per9_EndTime: $xmlinfo.Per9_EndTime)
+            MiddleSchoolSchedule(xmlinfo: xmlinfo)
         }
         .navigationDestination(isPresented: $UpperNav) {
             UpperSchoolSchedule()
