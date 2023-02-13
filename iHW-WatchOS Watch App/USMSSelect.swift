@@ -24,9 +24,8 @@ struct GrowingButton2: ButtonStyle {
     }
 }
 
-class studentSchedule: ObservableObject {
-    
-}
+
+
 
 class XMLInfo: ObservableObject {
     @Published var DayDateLong = ""
@@ -53,6 +52,34 @@ class XMLInfo: ObservableObject {
     @Published var Per8_EndTime = ""
     @Published var Per9_StartTime = ""
     @Published var Per9_EndTime = ""
+    @Published var selectedTab = "TodaySchoolDay"
+    
+    @Published var Per1_StartTimeLong = ""
+    @Published var Per1_EndTimeLong = ""
+    @Published var Per2_StartTimeLong = ""
+    @Published var Per2_EndTimeLong = ""
+    @Published var Break_StartTimeLong = ""
+    @Published var Break_EndTimeLong = ""
+    @Published var Per3_StartTimeLong = ""
+    @Published var Per3_EndTimeLong = ""
+    @Published var Per4_StartTimeLong = ""
+    @Published var Per4_EndTimeLong = ""
+    @Published var Per5_StartTimeLong = ""
+    @Published var Per5_EndTimeLong = ""
+    @Published var Per6_StartTimeLong = ""
+    @Published var Per6_EndTimeLong = ""
+    @Published var Per7_StartTimeLong = ""
+    @Published var Per7_EndTimeLong = ""
+    @Published var Per8_StartTimeLong = ""
+    @Published var Per8_EndTimeLong = ""
+    @Published var Per9_StartTimeLong = ""
+    @Published var Per9_EndTimeLong = ""
+    
+    @Published var MScounter: Int = 0
+    @Published var xmlDateMS = ""
+    @Published var lessThanFiveMinTrue = false
+    @Published var SchoolDidEndVar = false
+    
     
     func MSgetInfo(futuredays: Int) {
         let url = "https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t="
@@ -67,7 +94,6 @@ class XMLInfo: ObservableObject {
                 print(" ")
                 let xml = XMLHash.parse(string)
                 let FutureDays: Int = futuredays
-                
                 self.DayDateLong = (xml["Calendar"]["CalendarDay"][FutureDays]["DayDateLong"].element?.text)!
                 self.CycleDay = (xml["Calendar"]["CalendarDay"][FutureDays]["CycleDay"].element?.text)!
                 self.DivisionDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["DivisionDescription"].element?.text)!
@@ -94,6 +120,28 @@ class XMLInfo: ObservableObject {
                 self.Per9_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTimeText"].element?.text)!
                 
                 
+                self.Per1_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTime"].element?.text)!
+                self.Per1_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTime"].element?.text)!
+                self.Per2_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTime"].element?.text)!
+                self.Per2_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTime"].element?.text)!
+                self.Break_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTime"].element?.text)!
+                self.Break_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTime"].element?.text)!
+                self.Per3_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTime"].element?.text)!
+                self.Per3_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTime"].element?.text)!
+                self.Per4_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTime"].element?.text)!
+                self.Per4_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTime"].element?.text)!
+                self.Per5_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTime"].element?.text)!
+                self.Per5_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTime"].element?.text)!
+                self.Per6_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTime"].element?.text)!
+                self.Per6_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTime"].element?.text)!
+                self.Per7_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTime"].element?.text)!
+                self.Per7_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTime"].element?.text)!
+                self.Per8_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTime"].element?.text)!
+                self.Per8_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTime"].element?.text)!
+                self.Per9_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTime"].element?.text)!
+                self.Per9_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTime"].element?.text)!
+                self.xmlDateMS = (xml["Calendar"]["CalendarDay"][FutureDays]["Date"].element?.text)!
+                
                 
                 print("It is \(self.DayDateLong), but it is a \(self.DivisionDescription) day \(self.CycleDay)")
                 print(type(of: self.DayDateLong))
@@ -104,6 +152,21 @@ class XMLInfo: ObservableObject {
             
         }
     }
+    
+    @Published var isHoliday = false
+    
+    func tabLoad() {
+        if self.isHoliday == true {
+            self.selectedTab = "Holiday"
+        }
+        
+        else if Date().dayOfWeek()! == "Saturday" || Date().dayOfWeek()! == "Sunday" {
+            self.selectedTab = "Weekend"
+        } else {
+            self.selectedTab = "TodaySchoolDay"
+        }
+    }
+    
 }
 
 
@@ -134,6 +197,7 @@ struct USMSSelect: View {
                 
                 Button {
                     xmlinfo.MSgetInfo(futuredays: 0)
+                    xmlinfo.tabLoad()
                     MiddleNav = true
                     
                 } label: {

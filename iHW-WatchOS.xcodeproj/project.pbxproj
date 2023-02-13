@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F71BC90F296D21A0009E01A2 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = F71BC90E296D21A0009E01A2 /* SWXMLHash */; };
+		F755B3DD298E30760064431B /* MSMath_Comp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B3DC298E30760064431B /* MSMath_Comp.swift */; };
 		F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5357296B5B32007358D8 /* USMSSelect.swift */; };
 		F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */; };
 		F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F755B3DC298E30760064431B /* MSMath_Comp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMath_Comp.swift; sourceTree = "<group>"; };
 		F77B5357296B5B32007358D8 /* USMSSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USMSSelect.swift; sourceTree = "<group>"; };
 		F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperSchoolSchedule.swift; sourceTree = "<group>"; };
 		F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleSchoolSchedule.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F7BAC199296632E60087CE2D /* Sign_In.swift */,
 				F77B5357296B5B32007358D8 /* USMSSelect.swift */,
 				F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */,
+				F755B3DC298E30760064431B /* MSMath_Comp.swift */,
 				F7EC650129886FD100873B4D /* TestView.swift */,
 				F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */,
 				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
@@ -339,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F755B3DD298E30760064431B /* MSMath_Comp.swift in Sources */,
 				F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */,
 				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
 				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
