@@ -8,28 +8,38 @@
 import SwiftUI
 
 struct About: View {
+    @State var fontsize: CGFloat = 20
     var body: some View {
-        VStack{
+        VStack {
+            
             Form {
                 Section {
+                    
                     Text("App idea by Zachary, but code put into motion by Zachary Abrahamson '26, Andrew Jo '26, and Kazach '26")
                         .multilineTextAlignment(.center)
-                        .fontWeight(.light)
+                        .font(.system(size: fontsize, weight: .light))
                 }
                 Section {
                     Text("iHW built from the ground up for Apple WatchOS")
                         .multilineTextAlignment(.center)
-                        .fontWeight(.light)
+                        .font(.system(size: fontsize, weight: .light))
                 }
                 Section {
                     Text("Project started in January of 2022")
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .fontWeight(.light)
+                        .font(.system(size: fontsize, weight: .light))
                 }
             }
         }
+        .onAppear {
+            if #unavailable(watchOS 9.0) {
+                fontsize = 15
+            }
+        }
+        
     }
 }
+
 
 struct About_Previews: PreviewProvider {
     static var previews: some View {

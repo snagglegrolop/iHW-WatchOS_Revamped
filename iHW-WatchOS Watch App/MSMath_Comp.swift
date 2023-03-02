@@ -13,6 +13,7 @@ import UserNotifications
 
 
 
+
 struct PeriodUntilTextFinished: View {
     @ObservedObject var xmlinfo: XMLInfo
     @State private var Finished = ""
@@ -24,16 +25,14 @@ struct PeriodUntilTextFinished: View {
     @State var nextPeriodText = ""
     @State var SchoolWillEndVar = false
     @State var FiveMinColor: Color = .red
-
+    @State var endingWeekday = ""
     var body: some View {
         VStack {
-            
             Spacer().frame(height: 15)
             Text(TimeDif)
                 .multilineTextAlignment(.center)
-                    .font(.system(size: 15))
-                    .bold()
-                    .foregroundColor(FiveMinColor)
+                .font(.system(size: 15, weight: .bold))
+                .foregroundColor(FiveMinColor)
         }.onAppear {
             getNearestPeriod()
             let date = Date()
@@ -48,9 +47,8 @@ struct PeriodUntilTextFinished: View {
         xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
     
-            if xmlinfo.Per9_StartTimeLong == "" {
+            if xmlinfo.DayDateLong == "Having trouble connecting to internet" {
                 xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
-                
             } else {
                 var timersArray: [Double] = []
                 let StartTimeArray = [xmlinfo.Per1_StartTimeLong, xmlinfo.Per2_StartTimeLong, xmlinfo.Break_StartTimeLong, xmlinfo.Per3_StartTimeLong, xmlinfo.Per4_StartTimeLong, xmlinfo.Per5_StartTimeLong, xmlinfo.Per6_StartTimeLong, xmlinfo.Per7_StartTimeLong, xmlinfo.Per8_StartTimeLong, xmlinfo.Per9_StartTimeLong, xmlinfo.Per9_EndTimeLong]
@@ -63,14 +61,17 @@ struct PeriodUntilTextFinished: View {
                     if timersArray[0] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
                         
+                        
                     } else if timersArray[0] > 300.0  {
                         xmlinfo.lessThanFiveMinTrue = false
                         
                     }
+                    
+                    
                     nextPeriod = xmlinfo.Per1_StartTimeLong
                     nextPeriodText = "Period 1"
                     
-                    print("Per1 is next")
+//                    print("Per1 is next")
                 } else if timersArray[1] >= 0.0 {
                     if timersArray[1] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -84,7 +85,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per2_StartTimeLong
                     nextPeriodText = "Period 2"
                     
-                    print("Per2 is next")
+//                    print("Per2 is next")
                 } else if timersArray[2] >= 0.0 {
                     if timersArray[2] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -99,7 +100,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Break_StartTimeLong
                     nextPeriodText = "Break"
                     
-                    print("Break is next")
+//                    print("Break is next")
                 } else if timersArray[3] >= 0.0 {
                     if timersArray[3] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -113,7 +114,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per3_StartTimeLong
                     nextPeriodText = "Period 3"
                     
-                    print("Per4 is next")
+//                    print("Per4 is next")
                 } else if timersArray[4] >= 0.0 {
                     if timersArray[4] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -127,7 +128,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per4_StartTimeLong
                     nextPeriodText = "Period 4"
                     
-                    print("Per5 is next")
+//                    print("Per5 is next")
                 } else if timersArray[5] >= 0.0 {
                     if timersArray[5] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -141,7 +142,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per5_StartTimeLong
                     nextPeriodText = "Period 5"
                     
-                    print("Per6 is next")
+//                    print("Per6 is next")
                 } else if timersArray[6] >= 0.0 {
                     if timersArray[6] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -155,7 +156,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per6_StartTimeLong
                     nextPeriodText = "Period 6"
                     
-                    print("Per7 is next")
+//                    print("Per7 is next")
                 } else if timersArray[7] >= 0.0 {
                     if timersArray[7] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -168,7 +169,7 @@ struct PeriodUntilTextFinished: View {
                     }
                     nextPeriod = xmlinfo.Per7_StartTimeLong
                     nextPeriodText = "Period 7"
-                    print("Per8 is next")
+//                    print("Per8 is next")
                 } else if timersArray[8] >= 0.0 {
                     if timersArray[8] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -182,7 +183,7 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per8_StartTimeLong
                     nextPeriodText = "Period 8"
                     
-                    print("Per9 is next")
+//                    print("Per9 is next")
                 } else if timersArray[9] >= 0.0 {
                     if timersArray[9] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -195,7 +196,7 @@ struct PeriodUntilTextFinished: View {
                     }
                     nextPeriod = xmlinfo.Per9_StartTimeLong
                     nextPeriodText = "Period 9"
-                    print("Per9End is next")
+//                    print("Per9End is next")
                 } else if timersArray[10] >= 0.0 {
                     if timersArray[10] <= 300.0 {
                         xmlinfo.lessThanFiveMinTrue = true
@@ -209,16 +210,19 @@ struct PeriodUntilTextFinished: View {
                     nextPeriod = xmlinfo.Per9_EndTimeLong
                     SchoolWillEndVar = true
                     nextPeriodText = "School"
-                    print("School ends next")
+//                    print("School ends next")
                 } else if timersArray[10] <= 0.0 {
-                    print("school ended already")
+//                    print("school ended already")
                     xmlinfo.SchoolDidEndVar = true
                     SchoolWillEndVar = false
                     xmlinfo.lessThanFiveMinTrue = false
                     nextPeriod = xmlinfo.Per9_EndTimeLong
                     
+                    
+                    
                 }
                 if xmlinfo.lessThanFiveMinTrue {
+                    
                     FiveMinColor = .red
                 } else if !xmlinfo.lessThanFiveMinTrue {
                     FiveMinColor = .purp
@@ -229,8 +233,8 @@ struct PeriodUntilTextFinished: View {
             
             let (h,m,s) = secondsToHoursMinutesSeconds(Int(GetDiffSeconds(stringXML: nextPeriod)))
             if xmlinfo.SchoolDidEndVar {
-                } else {
                 TimeDif = "School is over"
+            } else {
                 if SchoolWillEndVar {
                     if h == 0 && m == 0 {
                         TimeDif = "\(nextPeriodText) ends in \(s) seconds"
@@ -239,7 +243,7 @@ struct PeriodUntilTextFinished: View {
                     } else {
                         TimeDif = "\(nextPeriodText) ends in \(h) hours, \(m) minutes, and \(s) seconds"
                     }
-                } else {
+                } else if !SchoolWillEndVar {
                     if h == 0 && m == 0 {
                         TimeDif = "\(nextPeriodText) begins in \(s) seconds"
                     } else if h == 0 {
@@ -255,15 +259,16 @@ struct PeriodUntilTextFinished: View {
     func GetDiffSeconds(stringXML: String) -> TimeInterval {
         let str = stringXML
         Array = str.components(separatedBy: " ")
-        Finished = "\(ToDateArray), \(Array[1]), \(Array[2])"
+        xmlinfo.Finished = "\(ToDateArray), \(Array[1]), \(Array[2])"
         
-        
+
         let mydate = DateFormatter()
         mydate.dateFormat = "yyyy/MM/dd, hh:mm:ss, a"
+        let weekform = DateFormatter()
+        weekform.dateFormat = "EEEE"
         let BeginStrings = mydate.string(from: Date())
         let beginning = mydate.date(from: BeginStrings)
-        let ending = mydate.date(from: Finished)
-        
+        let ending = mydate.date(from: xmlinfo.Finished)
         let diffinSeconds = ending!.timeIntervalSinceReferenceDate - beginning!.timeIntervalSinceReferenceDate
         return(diffinSeconds)
         

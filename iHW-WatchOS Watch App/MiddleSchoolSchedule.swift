@@ -5,6 +5,8 @@
 //  Created by Zachary Abrahamson  on 1/8/23.
 //
 
+
+
 import SwiftUI
 import UserNotifications
 
@@ -22,7 +24,15 @@ extension Date {
 }
 
 
-
+extension String {
+    func convertToNextDate(dateFormat: String, validity: Int) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let myDate = dateFormatter.date(from: self)!
+        let tomorrow = Calendar.current.date(byAdding: .day, value: validity, to: myDate)
+        return dateFormatter.string(from: tomorrow!)
+    }
+}
 
 struct MiddleSchoolSchedule: View {
     
@@ -39,77 +49,35 @@ struct MiddleSchoolSchedule: View {
     @State var Per8_MS = false
     @State var Per9_MS = false
     
-
+    
     
     let Gold = Color(red: 0.4627, green: 0.8392, blue: 1.0)
-
+    
     @State private var showingAlert = false
-
+    
     @State var PreviousDay = "Prior Day"
-    
-    
     @ObservedObject var xmlinfo: XMLInfo
-    @StateObject var xmlInfo = XMLInfo()
     
     var body: some View {
-        NavigationStack {
-            TabView(selection: $xmlinfo.selectedTab) {
-                VStack {
-                    WeekendView()
-                }
-                .tag("Weekend")
-                
-                VStack {
-                    HolidayView()
-                }
-                .tag("Holiday")
-                VStack (spacing: -5) {
-                    
-                    HStack {
-                        Button {
-                            if xmlinfo.MScounter >= 1 {
-                                xmlinfo.MScounter -= 1
-                            } else {
-                            PreviousDay = "Error"
-                                showingAlert = true
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                    PreviousDay = "Prior Day"
-                                }
-
-                            }
-                                
-                            xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
-                            
-                        } label: {
-                            Text(PreviousDay)
-                                .font(.system(size: 15))
-                            
-
-                        }
-                        .alert("You can't go back further than today.", isPresented: $showingAlert) {
-                            Button("OK", role: .cancel) { }
-                                
-                        }
-                        Divider().frame(height: 20)
-
-                        Button {
-                            xmlinfo.MScounter += 1
-                            xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
-
-                        } label: {
-                            Text("Next Day")
-                                .font(.system(size: 15))
-                        }
-                        
-                        
-                        
+        NavigationView {
+            
+                TabView(selection: $xmlinfo.selectedTab) {
+                    VStack {
+                        WeekendView()
                     }
-                    Spacer()
-                        .frame(height: 14)
-                    Divider().frame(width: 180)
-                    Spacer()
-                        .frame(height: 13)
-                    List {
+                    .tag("Weekend")
+                    
+                    VStack {
+                        HolidayView()
+                    }
+                    .tag("Holiday")
+                    VStack (spacing: -5) {
+                        
+                        FluidStepper(xmlinfo: xmlinfo)
+                        Divider().frame(width: RelativeWidth(CurrentWidth: 140))
+                        Spacer()
+                            .frame(height: 7)
+                        List {
                             Group {
                                 Button {
                                 } label: {
@@ -121,13 +89,14 @@ struct MiddleSchoolSchedule: View {
                                             .ignoresSafeArea()
                                         Spacer()
                                             .frame(height: 17)
-                                        Divider().frame(width: 180)
+                                        Divider().frame(width: RelativeWidth(CurrentWidth: 120))
+                                            
                                         
                                         
                                         if xmlinfo.MScounter == 0 && !xmlinfo.SchoolDidEndVar {
-                                                PeriodUntilTextFinished(xmlinfo: xmlinfo)
+                                            PeriodUntilTextFinished(xmlinfo: xmlinfo)
                                         } else if xmlinfo.MScounter == 0 {
-                                        Text("howdy there partner")
+                                            PeriodUntilTextFinished(xmlinfo: xmlinfo)
                                         }
                                         
                                         
@@ -138,14 +107,22 @@ struct MiddleSchoolSchedule: View {
                             .listRowBackground(Color.clear)
                             .listStyle(PlainListStyle())
                             Group {
+//                                Group {
+//                                NavigationLink(destination: Per1_Notes()) {
+//                                    VStack {
+//                                        Text("Period 1")
+//                                        Text("\(xmlinfo.Per1_StartTime) to \(xmlinfo.Per1_EndTime)")
+//                                            .font(.footnote)
+//                                    }
+//                                }
                                 Button {
                                     Per1_MS = true
                                 } label: {
                                     Text("Period 1")
                                     Text("\(xmlinfo.Per1_StartTime) to \(xmlinfo.Per1_EndTime)")
                                         .font(.footnote)
-                                    
                                 }
+//                                }
                                 Button {
                                     Per2_MS = true
                                 } label: {
@@ -212,46 +189,17 @@ struct MiddleSchoolSchedule: View {
                             }
                             
                         }
-                    
+                        
+                    }
+                    .tag("TodaySchoolDay")
                 }
-                .tag("TodaySchoolDay")
             }
+            
+            
+            
         }
-        .navigationViewStyle(.stack)
-        
-        .navigationDestination(isPresented: $Per1_MS) {
-            Per1_Notes()
-        }
-        .navigationDestination(isPresented: $Per2_MS) {
-            Per2_Notes()
-        }
-        .navigationDestination(isPresented: $Break_MS) {
-            Break_Notes()
-        }
-        .navigationDestination(isPresented: $Per3_MS) {
-            Per3_Notes()
-        }
-        .navigationDestination(isPresented: $Per4_MS) {
-            Per4_Notes()
-        }
-        .navigationDestination(isPresented: $Per5_MS) {
-            Per5_Notes()
-        }
-        .navigationDestination(isPresented: $Per6_MS) {
-            Per6_Notes()
-        }
-        .navigationDestination(isPresented: $Per7_MS) {
-            Per7_Notes()
-        }
-        .navigationDestination(isPresented: $Per8_MS) {
-            Per8_Notes()
-        }
-        .navigationDestination(isPresented: $Per9_MS) {
-            Per9_Notes()
-        }
-    }
+    
 }
-
 struct Per1_Notes: View {
     @AppStorage("Per1Notes") private var Per1Notes = ""
     @State private var showingConfirmation = false
@@ -271,7 +219,7 @@ struct Per1_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per1Notes,  axis: .vertical)
+            TextField("Notes", text: $Per1Notes)
         }
     }
 }
@@ -295,7 +243,7 @@ struct Per2_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per2Notes,  axis: .vertical)
+            TextField("Notes", text: $Per2Notes)
         }
     }
 }
@@ -319,7 +267,7 @@ struct Break_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Break_Notes,  axis: .vertical)
+            TextField("Notes", text: $Break_Notes)
         }
     }
 }
@@ -343,7 +291,7 @@ struct Per3_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per3Notes,  axis: .vertical)
+            TextField("Notes", text: $Per3Notes)
         }
     }
 }
@@ -367,7 +315,7 @@ struct Per4_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per4Notes,  axis: .vertical)
+            TextField("Notes", text: $Per4Notes)
         }
     }
 }
@@ -391,7 +339,7 @@ struct Per5_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per5Notes,  axis: .vertical)
+            TextField("Notes", text: $Per5Notes)
         }
     }
 }
@@ -415,7 +363,7 @@ struct Per6_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per6Notes,  axis: .vertical)
+            TextField("Notes", text: $Per6Notes)
         }
     }
 }
@@ -439,7 +387,7 @@ struct Per7_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per7Notes,  axis: .vertical)
+            TextField("Notes", text: $Per7Notes)
         }
     }
 }
@@ -463,7 +411,7 @@ struct Per8_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per8Notes,  axis: .vertical)
+            TextField("Notes", text: $Per8Notes)
         }
     }
 }
@@ -487,7 +435,7 @@ struct Per9_Notes: View {
                         Text("You can't get this back")
                     }
                 
-            TextField("Notes", text: $Per9Notes,  axis: .vertical)
+            TextField("Notes", text: $Per9Notes)
         }
     }
 }
@@ -498,8 +446,7 @@ struct WeekendView: View {
             .font(.footnote)
         Text("Today is weekend. No regularly scheduled school!")
             .padding()
-            .font(.system(size: 15))
-            .bold()
+            .font(.system(size: 15, weight: .bold))
             .foregroundColor(.red)
             .multilineTextAlignment(.center)
     }
@@ -512,8 +459,7 @@ struct HolidayView: View {
                 .font(.footnote)
             Text("It's a holiday. No regularly scheduled school!")
                 .padding()
-                .font(.system(size: 15))
-                .bold()
+                .font(.system(size: 15, weight: .bold))
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
         }

@@ -15,7 +15,7 @@ extension Color {
 }
 
 
-class SecurityManager : ObservableObject {
+class SecurityManager: ObservableObject {
     @Published var isSignInButtonDisabled = true
 }
 
@@ -45,56 +45,67 @@ struct Sign_In: View {
     @AppStorage("username") private var username = ""
     @AppStorage("password") private var password = ""
     @StateObject var securityManager = SecurityManager()
+
     var body: some View {
-         
-        NavigationStack {
-             VStack {
+        NavigationView {
+            
+            VStack {
                 Form {
                     TextField("Username", text: $username)
                     SecureField("Password", text: $password)
                 }
-                 
-                .scrollDisabled(true)
+                
                 .submitLabel(.next)
+                
                 .onSubmit {
-                    if username.isEmpty == false && password.isEmpty == false {
+                    if username.isEmpty == false && password.isEmpty == false  {
                         securityManager.isSignInButtonDisabled = false } else {
                             securityManager.isSignInButtonDisabled = true
                             print("authworks?")
                         }
                 }
-                Button {
-                   if username.isEmpty == false && password.isEmpty == false {
-                       readyToNavigate = true } else {
-                           readyToNavigate = false
-                               
-                       }
-               } label: {
-                   Text("Sign In")
-                       .bold()
-                       .foregroundColor(.white)
-                       .font(.title2)
-                       .onAppear(perform: {
-                           DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                               if username.isEmpty == false && password.isEmpty == false {
-                                   securityManager.isSignInButtonDisabled = false } else {
-                                       securityManager.isSignInButtonDisabled = true
-                                   }
-                           }
-                       }
-                           )
-                   
-               }
-               .buttonStyle(SignButton(securityManager: securityManager))
-           }
-             
-             .navigationDestination(isPresented: $readyToNavigate) {
-                 USMSSelect()
-
-             }
-
+                
+                NavigationLink (destination: USMSSelect(),
+                isActive: $readyToNavigate
+                ) {
+                    Text("Sign In")
+                        .bold()
+                        .foregroundColor(.white)
+                        .font(.title2)
+                        .onAppear(perform: {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                if username.isEmpty == false && password.isEmpty == false  {
+                                    securityManager.isSignInButtonDisabled = false } else {
+                                        securityManager.isSignInButtonDisabled = true
+                                    }
+                            }
+                        }
+                        )
+                    
+                }
+                .disabled(!readyToNavigate)
+                .buttonStyle(SignButton(securityManager: securityManager))
+                .onTapGesture {
+                    if username.isEmpty == false && password.isEmpty == false  {
+                        readyToNavigate = true
+                        
+                    } else {
+                        readyToNavigate = false
+                    }
+                }
+                
+                
+                
+            }
+            
+            //             .navigationDestination(isPresented: $readyToNavigate) {
+            //                 USMSSelect()
+            //
+            //             }
         }
+        
     }
+        
 }
 
 

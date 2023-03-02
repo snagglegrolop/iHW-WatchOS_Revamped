@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F71BC90F296D21A0009E01A2 /* SWXMLHash in Frameworks */ = {isa = PBXBuildFile; productRef = F71BC90E296D21A0009E01A2 /* SWXMLHash */; };
 		F755B3DD298E30760064431B /* MSMath_Comp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F755B3DC298E30760064431B /* MSMath_Comp.swift */; };
+		F774787E29ADF1BA004461F7 /* CacheBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F774787D29ADF1BA004461F7 /* CacheBar.swift */; };
 		F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5357296B5B32007358D8 /* USMSSelect.swift */; };
 		F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */; };
 		F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */; };
@@ -21,9 +22,10 @@
 		F7923AD329650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */; };
 		F7923AD529650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */; };
 		F7A07B51297099D0005B0422 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F7A07B50297099D0005B0422 /* Alamofire */; };
+		F7B31B4829A5A140003E4D26 /* IsWeekend.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B31B4729A5A140003E4D26 /* IsWeekend.swift */; };
 		F7BAC19A296632E60087CE2D /* Sign_In.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC199296632E60087CE2D /* Sign_In.swift */; };
 		F7BAC19C296686D60087CE2D /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC19B296686D60087CE2D /* About.swift */; };
-		F7EC650229886FD100873B4D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC650129886FD100873B4D /* TestView.swift */; };
+		F7EC650229886FD100873B4D /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC650129886FD100873B4D /* CustomStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		F755B3DC298E30760064431B /* MSMath_Comp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSMath_Comp.swift; sourceTree = "<group>"; };
+		F774787D29ADF1BA004461F7 /* CacheBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheBar.swift; sourceTree = "<group>"; };
 		F77B5357296B5B32007358D8 /* USMSSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USMSSelect.swift; sourceTree = "<group>"; };
 		F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperSchoolSchedule.swift; sourceTree = "<group>"; };
 		F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleSchoolSchedule.swift; sourceTree = "<group>"; };
@@ -80,9 +83,10 @@
 		F7923ACE29650D2900DC9678 /* iHW-WatchOS Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iHW-WatchOS Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7923AD229650D2900DC9678 /* iHW_WatchOS_Watch_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppUITests.swift; sourceTree = "<group>"; };
 		F7923AD429650D2900DC9678 /* iHW_WatchOS_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHW_WatchOS_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F7B31B4729A5A140003E4D26 /* IsWeekend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsWeekend.swift; sourceTree = "<group>"; };
 		F7BAC199296632E60087CE2D /* Sign_In.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_In.swift; sourceTree = "<group>"; };
 		F7BAC19B296686D60087CE2D /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
-		F7EC650129886FD100873B4D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		F7EC650129886FD100873B4D /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +142,15 @@
 			children = (
 				F7923AB729650D2800DC9678 /* iHW_WatchOSApp.swift */,
 				F7923AB929650D2800DC9678 /* Homepage.swift */,
+				F774787D29ADF1BA004461F7 /* CacheBar.swift */,
 				F7BAC19B296686D60087CE2D /* About.swift */,
 				F7BAC199296632E60087CE2D /* Sign_In.swift */,
 				F77B5357296B5B32007358D8 /* USMSSelect.swift */,
 				F77B535B296B73B6007358D8 /* MiddleSchoolSchedule.swift */,
 				F755B3DC298E30760064431B /* MSMath_Comp.swift */,
-				F7EC650129886FD100873B4D /* TestView.swift */,
+				F7EC650129886FD100873B4D /* CustomStepper.swift */,
 				F77B5359296B739D007358D8 /* UpperSchoolSchedule.swift */,
+				F7B31B4729A5A140003E4D26 /* IsWeekend.swift */,
 				F7923ABB29650D2900DC9678 /* Assets.xcassets */,
 				F7923ABD29650D2900DC9678 /* Preview Content */,
 			);
@@ -347,9 +353,11 @@
 				F7923ABA29650D2800DC9678 /* Homepage.swift in Sources */,
 				F7BAC19C296686D60087CE2D /* About.swift in Sources */,
 				F77B535A296B739D007358D8 /* UpperSchoolSchedule.swift in Sources */,
-				F7EC650229886FD100873B4D /* TestView.swift in Sources */,
+				F7B31B4829A5A140003E4D26 /* IsWeekend.swift in Sources */,
+				F7EC650229886FD100873B4D /* CustomStepper.swift in Sources */,
 				F77B535C296B73B6007358D8 /* MiddleSchoolSchedule.swift in Sources */,
 				F77B5358296B5B32007358D8 /* USMSSelect.swift in Sources */,
+				F774787E29ADF1BA004461F7 /* CacheBar.swift in Sources */,
 				F7923AB829650D2800DC9678 /* iHW_WatchOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +456,7 @@
 				SDKROOT = watchos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -500,6 +509,7 @@
 				SDKROOT = watchos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
@@ -529,7 +539,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -560,7 +570,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
@@ -614,7 +624,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHW-WatchOS Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iHW-WatchOS Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -636,7 +646,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHW-WatchOS Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iHW-WatchOS Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
@@ -656,7 +666,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "iHW-WatchOS Watch App";
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -677,7 +687,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				TEST_TARGET_NAME = "iHW-WatchOS Watch App";
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 9.1;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};

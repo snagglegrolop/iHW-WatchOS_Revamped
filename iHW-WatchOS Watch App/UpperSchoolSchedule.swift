@@ -16,8 +16,8 @@ struct UpperSchoolSchedule: View {
         VStack{
             Text("Today is Day \(toDay)")
                 .padding()
-                .font(.title3)
-                .bold()
+                .font(.system(size: 10, weight: .bold))
+                
                 .foregroundColor(.red)
             Form {
                 Text("Block 1")

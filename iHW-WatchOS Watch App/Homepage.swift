@@ -6,47 +6,95 @@
 //
 
 import SwiftUI
+import UserNotifications
+import Alamofire
+import Foundation
 
+func RelativeWidth(CurrentWidth: CGFloat) -> CGFloat {
+    
+    let stepone = SGConvenience.deviceWidth / CurrentWidth
+    return SGConvenience.deviceWidth / stepone
+}
 
-struct GrowingButton: ButtonStyle {
+struct HomeGrownButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
+            .frame(width: RelativeWidth(CurrentWidth: 100), height: RelativeWidth(CurrentWidth: 40))
             .background(.red)
             .foregroundColor(.white)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .scaleEffect(configuration.isPressed ? 1.2 : 1)
             .animation(.easeInOut(duration: 0.4), value: configuration.isPressed)
-        
+            .font(.system(size: 20, weight: .bold))
+            
+            
+
         
     }
 }
 
 
 
-struct Homepage: View {
-    var body: some View {
-        NavigationView {
-            ZStack {
-                VStack(spacing: 30) {
-                    NavigationLink(destination: Sign_In()) {
-                        Text("   Sign In   ")
-                    }
-                    .buttonStyle(GrowingButton())
-                    .accentColor(.black)
-                    .font(.title3)
-                    .bold()
-                    
-                    NavigationLink(destination: About()) {
-                        Text("    About    ")
-                    }
-                    .accentColor(.black)
-                    .buttonStyle(GrowingButton())
-                    .font(.title3)
-                    .bold()
-                }
-            };};};}
 
+struct Homepage: View {
+    @State private var isSideBarOpened = false
+
+
+    var body: some View {
+        
+        NavigationView {
+
+            ZStack {
+//                SideMenu(isSidebarVisible: $isSideBarOpened)
+//                Button {
+//                    print("clicked :(:")
+//                }   label: {
+//                    Image(systemName: "ellipsis")
+//
+//                }
+//                .position(x: SGConvenience.deviceWidth * 0.1, y: SGConvenience.deviceWidth * 0.1)
+                
+                
+                
+
+                    VStack(spacing: 30) {
+                        NavigationLink(destination: Sign_In()) {
+                            Text("Sign In")
+                        }
+                        .buttonStyle(HomeGrownButton())
+
+                        NavigationLink(destination: About()) {
+                            Text("About")
+                        }
+                        .buttonStyle(HomeGrownButton())
+                        
+                        
+                    }
+                    
+                    
+                    
+                
+            }
+            .onAppear {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { success, error in
+                    if success {
+                        print("Permission granted")
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+  
+            }
+            
+        }
+        
+
+        
+    }
+        
+        
+}
 
 
 struct Homepage_Previews: PreviewProvider {
