@@ -12,7 +12,7 @@ var secondaryColor: Color = Color(.white)
 
 
 
-class SGConvenience{
+enum SGConvenience{
     #if os(watchOS)
     static var deviceWidth:CGFloat = WKInterfaceDevice.current().screenBounds.size.width
     #elseif os(iOS)

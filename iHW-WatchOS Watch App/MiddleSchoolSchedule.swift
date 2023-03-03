@@ -5,7 +5,47 @@
 //  Created by Zachary Abrahamson  on 1/8/23.
 //
 
+/*
+                    HStack {
+                         Button {
+                             if xmlinfo.MScounter >= 1 {
+                                 xmlinfo.MScounter -= 1
+                             } else {
+                             PreviousDay = "Error"
+                                 showingAlert = true
+                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                     PreviousDay = "Prior Day"
+                                 }
 
+                             }
+                                 
+                             xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
+                             
+                         } label: {
+                             Text(PreviousDay)
+                                 .font(.system(size: 15))
+                             
+
+                         }
+                         .alert("You can't go back further than today.", isPresented: $showingAlert) {
+                             Button("OK", role: .cancel) { }
+                                 
+                         }
+                         Divider().frame(height: 20)
+
+                         Button {
+                             xmlinfo.MScounter += 1
+                             xmlinfo.MSgetInfo(futuredays: xmlinfo.MScounter)
+
+                         } label: {
+                             Text("Next Day")
+                                 .font(.system(size: 15))
+                         }
+                         
+                         
+                         
+                     }
+ */
 
 import SwiftUI
 import UserNotifications

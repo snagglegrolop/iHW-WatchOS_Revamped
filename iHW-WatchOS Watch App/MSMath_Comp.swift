@@ -26,6 +26,7 @@ struct PeriodUntilTextFinished: View {
     @State var SchoolWillEndVar = false
     @State var FiveMinColor: Color = .red
     @State var endingWeekday = ""
+    @State var lastSchedRequestTime: Double = 0
     var body: some View {
         VStack {
             Spacer().frame(height: 15)
@@ -39,6 +40,68 @@ struct PeriodUntilTextFinished: View {
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "yyyy/MM/dd"
             ToDateArray = dateformatter.string(from: date)
+            
+            let currentTime = Date().timeIntervalSince1970
+            
+            if lastSchedRequestTime == 0 || !Calendar.current.isDate(Date(timeIntervalSince1970: lastSchedRequestTime), inSameDayAs: Date()) {
+                
+                let TUFiveArray = [xmlinfo.FirstTUFiveMNotif, xmlinfo.SecondTUFiveMNotif, xmlinfo.BreakTUFiveMNotif, xmlinfo.ThirdTUFiveMNotif, xmlinfo.FourthTUFiveMNotif, xmlinfo.FifthTUFiveMNotif, xmlinfo.SixthTUFiveMNotif, xmlinfo.SeventhTUFiveMNotif, xmlinfo.EigthTUFiveMNotif, xmlinfo.NinthTUFiveMNotif]
+                
+                for TimeUntil in TUFiveArray {
+                    print()
+                    if TimeUntil > 0.0 {
+                        var nextperiodNotif = "Next Period"
+                        if TUFiveArray[0] == TimeUntil {
+                            nextperiodNotif = "Period 1"
+                        } else if TUFiveArray[1] == TimeUntil {
+                            nextperiodNotif = "Period 2"
+                        } else if TUFiveArray[2] == TimeUntil {
+                            nextperiodNotif = "Break"
+                        }  else if TUFiveArray[3] == TimeUntil {
+                            nextperiodNotif = "Period 3"
+                        }  else if TUFiveArray[4] == TimeUntil {
+                            nextperiodNotif = "Period 4"
+                        }  else if TUFiveArray[5] == TimeUntil {
+                            nextperiodNotif = "Period 5"
+                        }  else if TUFiveArray[6] == TimeUntil {
+                            nextperiodNotif = "Period 6"
+                        }  else if TUFiveArray[7] == TimeUntil {
+                            nextperiodNotif = "Period 7"
+                        }  else if TUFiveArray[8] == TimeUntil {
+                            nextperiodNotif = "Period 8"
+                        }  else if TUFiveArray[9] == TimeUntil {
+                            nextperiodNotif = "Period 9"
+                        }
+                        
+                        let content = UNMutableNotificationContent()
+                        
+                        content.title = "Five minutes until next period!"
+                        content.body = "\(nextperiodNotif) is in 5 minutes"
+                        
+                        content.sound = UNNotificationSound.default
+                        
+                        
+                       
+                        
+                        // show this notification five seconds from now
+                        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeUntil, repeats: false)
+
+                        // choose a random identifier
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                        
+                        // add our notification request
+                        UNUserNotificationCenter.current().add(request)
+                        
+                        
+                    }
+                    print("not enough time, moving on")
+                }
+                
+                lastSchedRequestTime = currentTime
+                print("IT IS A NEW DAY")
+            } else {
+                print("no notifications have been triggered :(")
+            }
             
         }
     }
@@ -56,6 +119,17 @@ struct PeriodUntilTextFinished: View {
                     let TimesArray = GetDiffSeconds(stringXML: Starts)
                         timersArray.append(TimesArray)
                 }
+                
+                xmlinfo.FirstTUFiveMNotif = timersArray[0] - 300.0
+                xmlinfo.SecondTUFiveMNotif = timersArray[1] - 300.0
+                xmlinfo.BreakTUFiveMNotif = timersArray[2]
+                xmlinfo.ThirdTUFiveMNotif = timersArray[3] - 300.0
+                xmlinfo.FourthTUFiveMNotif = timersArray[4] - 300.0
+                xmlinfo.FifthTUFiveMNotif = timersArray[5] - 300.0
+                xmlinfo.SixthTUFiveMNotif = timersArray[6] - 300.0
+                xmlinfo.SeventhTUFiveMNotif = timersArray[7] - 300.0
+                xmlinfo.EigthTUFiveMNotif = timersArray[8] - 300.0
+                xmlinfo.NinthTUFiveMNotif = timersArray[9] - 300.0
                 
                 if timersArray[0] >= 0.0 {
                     if timersArray[0] <= 300.0 {
@@ -231,6 +305,8 @@ struct PeriodUntilTextFinished: View {
                 
             }
             
+            
+            
             let (h,m,s) = secondsToHoursMinutesSeconds(Int(GetDiffSeconds(stringXML: nextPeriod)))
             if xmlinfo.SchoolDidEndVar {
                 TimeDif = "School is over"
@@ -251,9 +327,13 @@ struct PeriodUntilTextFinished: View {
                     } else {
                         TimeDif = "\(nextPeriodText) begins in \(h) hours, \(m) minutes, and \(s) seconds"
                     }
+                        
                 }
+                    
             }
+                
         }
+        
     }
     
     func GetDiffSeconds(stringXML: String) -> TimeInterval {

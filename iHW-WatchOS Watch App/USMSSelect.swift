@@ -8,7 +8,7 @@
 import SwiftUI
 import Alamofire
 import SWXMLHash
-
+import UserNotifications
 
 struct GrowingButton2: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -100,6 +100,9 @@ class XMLInfo: ObservableObject {
             //URLCache.shared.removeCachedResponse(for: urlRequest)
             lastRequestTime = currentTime
             print("IT IS A NEW DAY")
+            
+            
+                
         
         } else {
             print("SAME DAY")
@@ -176,12 +179,27 @@ class XMLInfo: ObservableObject {
                         }
                         
                         
+                            
+                        
+                        
+                        
                     }
                 }
         }
         
     
     @Published var isHoliday = false
+    // TU means Time Until
+    @Published var FirstTUFiveMNotif: Double = -10.0
+    @Published var BreakTUFiveMNotif: Double = -10.0
+    @Published var SecondTUFiveMNotif: Double = -10.0
+    @Published var ThirdTUFiveMNotif: Double = -10.0
+    @Published var FourthTUFiveMNotif: Double = -10.0
+    @Published var FifthTUFiveMNotif: Double = -10.0
+    @Published var SixthTUFiveMNotif: Double = -10.0
+    @Published var SeventhTUFiveMNotif: Double = -10.0
+    @Published var EigthTUFiveMNotif: Double = -10.0
+    @Published var NinthTUFiveMNotif: Double = -10.0
     
     func tabLoad() {
         if self.isHoliday == true {
