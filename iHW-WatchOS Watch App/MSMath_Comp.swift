@@ -26,7 +26,7 @@ struct PeriodUntilTextFinished: View {
     @State var SchoolWillEndVar = false
     @State var FiveMinColor: Color = .red
     @State var endingWeekday = ""
-    @State var lastSchedRequestTime: Double = 0
+    @AppStorage("lastSchedRequestTime") var lastSchedRequestTime: Double = 0
     var body: some View {
         VStack {
             Spacer().frame(height: 15)
@@ -44,11 +44,12 @@ struct PeriodUntilTextFinished: View {
             let currentTime = Date().timeIntervalSince1970
             
             if lastSchedRequestTime == 0 || !Calendar.current.isDate(Date(timeIntervalSince1970: lastSchedRequestTime), inSameDayAs: Date()) {
-                
+                print("IT IS A NEW DAY")
+
                 let TUFiveArray = [xmlinfo.FirstTUFiveMNotif, xmlinfo.SecondTUFiveMNotif, xmlinfo.BreakTUFiveMNotif, xmlinfo.ThirdTUFiveMNotif, xmlinfo.FourthTUFiveMNotif, xmlinfo.FifthTUFiveMNotif, xmlinfo.SixthTUFiveMNotif, xmlinfo.SeventhTUFiveMNotif, xmlinfo.EigthTUFiveMNotif, xmlinfo.NinthTUFiveMNotif]
                 
                 for TimeUntil in TUFiveArray {
-                    print()
+                    print(TimeUntil)
                     if TimeUntil > 0.0 {
                         var nextperiodNotif = "Next Period"
                         if TUFiveArray[0] == TimeUntil {
@@ -98,7 +99,6 @@ struct PeriodUntilTextFinished: View {
                 }
                 
                 lastSchedRequestTime = currentTime
-                print("IT IS A NEW DAY")
             } else {
                 print("no notifications have been triggered :(")
             }
