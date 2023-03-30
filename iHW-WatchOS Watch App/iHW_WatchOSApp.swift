@@ -14,6 +14,7 @@ import SwiftUI
     var body: some Scene {
         WindowGroup {
             Homepage()
+                
             
         }
     }

@@ -29,6 +29,8 @@ struct GrowingButton2: ButtonStyle {
 
 
 class XMLInfo: ObservableObject {
+    @Published var isSentforWifi = false
+    
     @Published var DayDateLong = "Having trouble connecting to internet"
     @Published var CycleDay = "2"
     @Published var DivisionDescription = "MS"
@@ -82,111 +84,89 @@ class XMLInfo: ObservableObject {
     @Published var lessThanFiveMinTrue = false
     @Published var SchoolDidEndVar = false
     @Published var DayOfWeek = "Tuesday"
-    @AppStorage("lastRequestTime") var lastRequestTime: Double = 0
-
+    
     
     
     func MSgetInfo(futuredays: Int) {
         let url = "https://www.hw.com/portals/0/reports/DailySchedulesMS.xml?t="
         let urlRequest = URLRequest(url: URL(string: url)!)
-        let currentTime = Date().timeIntervalSince1970
-        let calendar = Calendar.current
+   
         let mydate = DateFormatter()
         mydate.dateFormat = "yyyy/MM/dd, hh:mm:ss, a"
         
-        if lastRequestTime == 0 || !Calendar.current.isDate(Date(timeIntervalSince1970: lastRequestTime), inSameDayAs: Date()) {
-            
-            URLCache.shared.removeAllCachedResponses()
-            //URLCache.shared.removeCachedResponse(for: urlRequest)
-            lastRequestTime = currentTime
-            print("IT IS A NEW DAY")
-            
-            
-                
+        //URLCache.shared.removeCachedResponse(for: urlRequest)
+        URLCache.shared.removeAllCachedResponses()
         
-        } else {
-            print("SAME DAY")
-        }
-                
-         AF.request(urlRequest)
-                .responseString { response in
-                    
-                    
-                    if let string = response.value {
-//                        print("hey")
-//                        print(" ")
-                        let xml = XMLHash.parse(string)
-                        let FutureDays: Int = futuredays
-                        self.xmlDateMS = (xml["Calendar"]["CalendarDay"][FutureDays]["Date"].element?.text)!
-                        self.DayDateLong = (xml["Calendar"]["CalendarDay"][FutureDays]["DayDateLong"].element?.text)!
-                        self.DayOfWeek = (xml["Calendar"]["CalendarDay"][FutureDays]["DayOfWeek"].element?.text)!
-                        self.CycleDay = (xml["Calendar"]["CalendarDay"][FutureDays]["CycleDay"].element?.text)!
-                        self.DivisionDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["DivisionDescription"].element?.text)!
-                        self.SchoolDayDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["SchoolDayDescription"].element?.text)!
-                        self.Per1_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTimeText"].element?.text)!
-                        self.Per1_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTimeText"].element?.text)!
-                        self.Per2_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTimeText"].element?.text)!
-                        self.Per2_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTimeText"].element?.text)!
-                        self.Break_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTimeText"].element?.text)!
-                        self.Break_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTimeText"].element?.text)!
-                        self.Per3_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTimeText"].element?.text)!
-                        self.Per3_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTimeText"].element?.text)!
-                        self.Per4_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTimeText"].element?.text)!
-                        self.Per4_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTimeText"].element?.text)!
-                        self.Per5_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTimeText"].element?.text)!
-                        self.Per5_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTimeText"].element?.text)!
-                        self.Per6_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTimeText"].element?.text)!
-                        self.Per6_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTimeText"].element?.text)!
-                        self.Per7_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTimeText"].element?.text)!
-                        self.Per7_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTimeText"].element?.text)!
-                        self.Per8_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTimeText"].element?.text)!
-                        self.Per8_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTimeText"].element?.text)!
-                        self.Per9_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTimeText"].element?.text)!
-                        self.Per9_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTimeText"].element?.text)!
-                        self.Per1_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTime"].element?.text)!
-                        self.Per1_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTime"].element?.text)!
-                        self.Per2_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTime"].element?.text)!
-                        self.Per2_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTime"].element?.text)!
-                        self.Break_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTime"].element?.text)!
-                        self.Break_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTime"].element?.text)!
-                        self.Per3_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTime"].element?.text)!
-                        self.Per3_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTime"].element?.text)!
-                        self.Per4_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTime"].element?.text)!
-                        self.Per4_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTime"].element?.text)!
-                        self.Per5_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTime"].element?.text)!
-                        self.Per5_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTime"].element?.text)!
-                        self.Per6_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTime"].element?.text)!
-                        self.Per6_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTime"].element?.text)!
-                        self.Per7_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTime"].element?.text)!
-                        self.Per7_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTime"].element?.text)!
-                        self.Per8_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTime"].element?.text)!
-                        self.Per8_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTime"].element?.text)!
-                        self.Per9_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTime"].element?.text)!
-                        self.Per9_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTime"].element?.text)!
-                        
-                        
-                        
-//                        print("It is \(self.DayDateLong), but it is a \(self.DivisionDescription) day \(self.CycleDay)")
-//                        print(type(of: self.DayDateLong))
-//                        print("Period 1 starts at \(self.Per1_StartTime)")
-                        
-                        if !calendar.isDateInToday(mydate.date(from: self.Finished) ?? Date()) {
-                            print("ITS A NEW DAY BUT OTHER NEW DAY THING IS BEING BROKEN")
-                            URLCache.shared.removeAllCachedResponses()
-                            self.MSgetInfo(futuredays: self.MScounter)
-                        } else {
-                            print("its fr not a new day and not going to mention the semi debugger thing")
-                        }
-                        
-                        
-                            
-                        
-                        
-                        
-                    }
-                }
-        }
         
+        
+        
+    
+    
+    AF.request(urlRequest)
+        .responseString { response in
+            
+            self.isSentforWifi = true
+            if let string = response.value {
+                let xml = XMLHash.parse(string)
+                let FutureDays: Int = futuredays
+                self.xmlDateMS = (xml["Calendar"]["CalendarDay"][FutureDays]["Date"].element?.text)!
+                self.DayDateLong = (xml["Calendar"]["CalendarDay"][FutureDays]["DayDateLong"].element?.text)!
+                self.DayOfWeek = (xml["Calendar"]["CalendarDay"][FutureDays]["DayOfWeek"].element?.text)!
+                self.CycleDay = (xml["Calendar"]["CalendarDay"][FutureDays]["CycleDay"].element?.text)!
+                self.DivisionDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["DivisionDescription"].element?.text)!
+                self.SchoolDayDescription = (xml["Calendar"]["CalendarDay"][FutureDays]["SchoolDayDescription"].element?.text)!
+                self.Per1_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTimeText"].element?.text)!
+                self.Per1_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTimeText"].element?.text)!
+                self.Per2_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTimeText"].element?.text)!
+                self.Per2_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTimeText"].element?.text)!
+                self.Break_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTimeText"].element?.text)!
+                self.Break_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTimeText"].element?.text)!
+                self.Per3_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTimeText"].element?.text)!
+                self.Per3_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTimeText"].element?.text)!
+                self.Per4_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTimeText"].element?.text)!
+                self.Per4_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTimeText"].element?.text)!
+                self.Per5_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTimeText"].element?.text)!
+                self.Per5_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTimeText"].element?.text)!
+                self.Per6_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTimeText"].element?.text)!
+                self.Per6_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTimeText"].element?.text)!
+                self.Per7_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTimeText"].element?.text)!
+                self.Per7_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTimeText"].element?.text)!
+                self.Per8_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTimeText"].element?.text)!
+                self.Per8_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTimeText"].element?.text)!
+                self.Per9_StartTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTimeText"].element?.text)!
+                self.Per9_EndTime = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTimeText"].element?.text)!
+                self.Per1_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["StartTime"].element?.text)!
+                self.Per1_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][0]["EndTime"].element?.text)!
+                self.Per2_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["StartTime"].element?.text)!
+                self.Per2_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][1]["EndTime"].element?.text)!
+                self.Break_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["StartTime"].element?.text)!
+                self.Break_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][2]["EndTime"].element?.text)!
+                self.Per3_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["StartTime"].element?.text)!
+                self.Per3_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][3]["EndTime"].element?.text)!
+                self.Per4_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["StartTime"].element?.text)!
+                self.Per4_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][4]["EndTime"].element?.text)!
+                self.Per5_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["StartTime"].element?.text)!
+                self.Per5_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][5]["EndTime"].element?.text)!
+                self.Per6_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["StartTime"].element?.text)!
+                self.Per6_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][6]["EndTime"].element?.text)!
+                self.Per7_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["StartTime"].element?.text)!
+                self.Per7_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][7]["EndTime"].element?.text)!
+                self.Per8_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["StartTime"].element?.text)!
+                self.Per8_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][8]["EndTime"].element?.text)!
+                self.Per9_StartTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["StartTime"].element?.text)!
+                self.Per9_EndTimeLong = (xml["Calendar"]["CalendarDay"][FutureDays]["Period"][9]["EndTime"].element?.text)!
+                
+                
+                
+                //                        print("It is \(self.DayDateLong), but it is a \(self.DivisionDescription) day \(self.CycleDay)")
+                //                        print(type(of: self.DayDateLong))
+                //                        print("Period 1 starts at \(self.Per1_StartTime)")
+
+                
+                
+            }
+        }
+}
     
     @Published var isHoliday = false
     // TU means Time Until
@@ -201,17 +181,7 @@ class XMLInfo: ObservableObject {
     @Published var EigthTUFiveMNotif: Double = -10.0
     @Published var NinthTUFiveMNotif: Double = -10.0
     
-    func tabLoad() {
-        if self.isHoliday == true {
-            self.selectedTab = "Holiday"
-        }
-        
-        else if Date().dayOfWeek()! == "Saturday" || Date().dayOfWeek()! == "Sunday" {
-            self.selectedTab = "Weekend"
-        } else {
-            self.selectedTab = "TodaySchoolDay"
-        }
-    }
+    
     
 }
 
@@ -225,37 +195,20 @@ struct USMSSelect: View {
     var body: some View {
         if #available(watchOS 9.0, *) {
             VStack(spacing: 10){
-                Text(" ")
-                    .font(.system(size: 10))
-                Button {
-                    UpperNav = true
-                    
-                } label: {
-                    Text("  Upper School Schedule  ")
-                        .multilineTextAlignment(.center)
-                    
-                        .foregroundColor(.white)
-                        .font(.system(size: 26, weight: .bold))
-                    
-                    
-                }
-                .buttonStyle(ButtonLook)
                 
-                Button {
-                    xmlinfo.MSgetInfo(futuredays: 0)
-                    xmlinfo.tabLoad()
-                    MiddleNav = true
-                    
-                } label: {
-                    
-                    Text("Middle School Schedule")
+                NavigationLink("Upper School Schedule", destination: UpperSchoolSchedule())
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .font(.system(size: 25.5, weight: .bold))
-                    
-                    
-                }
-                .buttonStyle(ButtonLook)
+                        .buttonStyle(ButtonLook)
+                
+                
+                NavigationLink("Middle School Schedule", destination: MiddleSchoolSchedule(xmlinfo: xmlinfo))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                        .font(.system(size: 25.5, weight: .bold))
+                        .buttonStyle(ButtonLook)
+                
             }
         } else {
             
@@ -269,10 +222,7 @@ struct USMSSelect: View {
                             
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
-                            .onTapGesture {
-                                xmlinfo.MSgetInfo(futuredays: 0)
-                                xmlinfo.tabLoad()
-                            }
+                            
                             
                         
                         
@@ -287,11 +237,7 @@ struct USMSSelect: View {
                         )
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
-                            .onTapGesture {
-                                xmlinfo.MSgetInfo(futuredays: 0)
-                                xmlinfo.tabLoad()
-                                
-                            }
+                            
                             
                         
                         

@@ -46,18 +46,6 @@ struct Homepage: View {
         NavigationView {
 
             ZStack {
-//                SideMenu(isSidebarVisible: $isSideBarOpened)
-//                Button {
-//                    print("clicked :(:")
-//                }   label: {
-//                    Image(systemName: "ellipsis")
-//
-//                }
-//                .position(x: SGConvenience.deviceWidth * 0.1, y: SGConvenience.deviceWidth * 0.1)
-                
-                
-                
-
                     VStack(spacing: 30) {
                         NavigationLink(destination: Sign_In()) {
                             Text("Sign In")
